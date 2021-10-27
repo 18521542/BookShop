@@ -1,13 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import RoutingScreen from './sreens'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>This is my first App</Text>
-      <StatusBar style="auto" />
-    </View>
+    <RoutingScreen></RoutingScreen>
   );
 }
 
