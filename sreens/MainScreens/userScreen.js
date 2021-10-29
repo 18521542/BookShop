@@ -1,19 +1,18 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
+// import { constant } from '../../constant'
 
-const homeScreen = ({navigation}) => {
+const userScreen = (navigation) => {
     return (
         <View>
-            <Text
-                style={styles.testText}
-            >this is home screen</Text>
-            
+            <Text>This is user UserScreen</Text>
+            <Text> This is UserScreen</Text>
         </View>
     )
 }
 
-export default homeScreen
+export default userScreen
 
 const styles = StyleSheet.create({
     testText:{
