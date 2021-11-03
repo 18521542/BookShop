@@ -1,17 +1,11 @@
 import React from 'react'
 import { StyleSheet, Text, View ,Button} from 'react-native'
 
-const homeScreen1 = ({navigation}) => {
-    console.log("go here")
+const homeScreen1 = (props) => {
+    const {description} = props.route.params
     return (
         <View>
-            <Text>SubScreen1</Text>
-            <Button 
-                title="Go to 2"
-                onPress={()=>{
-                    navigation.navigate("homeScreen2")
-                }}
-            > </Button>
+            <Text>{description}</Text>
         </View>
     )
 }
