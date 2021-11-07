@@ -7,7 +7,8 @@ const HomeScreenStackNavigator = createStackNavigator();
 
 export const HomeScreenNavigator = () => {
     return (
-        <HomeScreenStackNavigator.Navigator>
+        <HomeScreenStackNavigator.Navigator
+        >
             <HomeScreenStackNavigator.Screen 
                 name="homeScreen1" 
                 component={homeScreen1}

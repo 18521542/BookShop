@@ -1,7 +1,12 @@
-const constant = {
+export const constant = {
     homeScreenName: "home",
     settingScreenName:"setting",
     userScreenName:"user",
+    cartScreenName:"cart"
 }
 
-export {constant};
+export const color = {
+    primaryColor: "#4634eb"
+}
+
+// export {constant};

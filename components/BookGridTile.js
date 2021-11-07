@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Image, Text, View, TouchableOpacity } from "react-native";
+import { color } from "../constant";
 
 const BookGridTile = (props) => {
   return (
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
     main:{
         flex:1,
         alignItems:"center",
-        backgroundColor: '#61dafb',
+        backgroundColor: color.primaryColor,
         paddingTop:10,
     },
     imgItem:{
