@@ -1,12 +1,20 @@
 import React from 'react'
-import { Button, Image,StyleSheet, Text,FlatList, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, FlatList} from 'react-native'
 import BookGridTile from '../../components/BookGridTile'
-import { BOOKS } from '../../dummy-data/BOOK'
-// import { constant } from '../..constant/constant';
-// import homeScreenNavigator from './navigators/homeScreenNavigator';
+import { useSelector,useDispatch } from 'react-redux'
+import { add_item_to_cart } from '../../store/actions/cart';
+// const dispatch = useDispatch();
+
 
 
 const homeScreen = ({navigation}) => {
+
+    //get state
+    const globalState = useSelector(state => state)
+    const selectedBook = globalState.book.selectedBook;
+    const data = globalState.book.data;
+
+    // console.log(state)
     const renderGridItem = items =>{
         const name = items.item.name;
         const imgLink = items.item.imgLink;
@@ -30,7 +38,7 @@ const homeScreen = ({navigation}) => {
     return (
         <FlatList
             numColumns={1}
-            data={BOOKS}
+            data={globalState.book.data}
             renderItem={renderGridItem}
         />
     )

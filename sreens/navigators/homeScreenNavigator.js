@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import homeScreen1 from '../SubHomeScreens/homeScreen1';
+import bookDetailScreen from '../SubHomeScreens/bookDetailScreen';
 import homeScreen2 from '../SubHomeScreens/homeScreen2';
 
 const HomeScreenStackNavigator = createStackNavigator();
@@ -11,7 +11,7 @@ export const HomeScreenNavigator = () => {
         >
             <HomeScreenStackNavigator.Screen 
                 name="homeScreen1" 
-                component={homeScreen1}
+                component={bookDetailScreen}
             />
             <HomeScreenStackNavigator.Screen 
                 name="homeScreen2" 

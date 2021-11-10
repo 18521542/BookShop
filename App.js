@@ -5,9 +5,11 @@ import RoutingScreen from './sreens'
 import { createStore, combineReducers } from 'redux';
 import cartReducer from "./store/reducers/cart";
 import { Provider } from 'react-redux';
+import bookReducer from './store/reducers/book';
 
 const rootReducer = combineReducers({
   cart: cartReducer, 
+  book: bookReducer
 });
 
 const store = createStore(rootReducer);
