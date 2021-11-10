@@ -19,7 +19,8 @@ const homeScreen = ({navigation}) => {
                     navigation.navigate("Root", {
                         screen:"homeScreen1",
                         params:{
-                            description: items.item.description
+                            description: description,
+                            name: name,
                         }
                     });
                 }}
