@@ -13,10 +13,11 @@ const cartReducer = (state = initialState, action) => {
                 return { ...state };
             } else {
                 let newTotal = ++state.total;
+                let newBooks = state.bookName.concat(action.itemName);
                 return {
                     ...state,
                     total: newTotal,
-                    bookName: state.bookName.concat(action.itemName)
+                    bookName: newBooks
                 }
             }
         default:

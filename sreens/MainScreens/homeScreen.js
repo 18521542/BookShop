@@ -1,8 +1,7 @@
 import React from 'react'
 import { StyleSheet, FlatList} from 'react-native'
 import BookGridTile from '../../components/BookGridTile'
-import { useSelector,useDispatch } from 'react-redux'
-import { add_item_to_cart } from '../../store/actions/cart';
+import { useSelector } from 'react-redux'
 // const dispatch = useDispatch();
 
 
@@ -11,10 +10,7 @@ const homeScreen = ({navigation}) => {
 
     //get state
     const globalState = useSelector(state => state)
-    const selectedBook = globalState.book.selectedBook;
-    const data = globalState.book.data;
 
-    // console.log(state)
     const renderGridItem = items =>{
         const name = items.item.name;
         const imgLink = items.item.imgLink;
