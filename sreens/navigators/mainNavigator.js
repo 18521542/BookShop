@@ -32,10 +32,10 @@ export const MainScreenNavigator = () => {
                     }
                     return <Ionicons name={iconName} size={size} color={color}/>
                 },
-                tabBarActiveBackgroundColor:"white",
+                tabBarActiveBackgroundColor:color.secondaryColor,
                 tabBarInactiveBackgroundColor:color.primaryColor,
                 tabBarActiveTintColor: color.primaryColor,
-                tabBarInactiveTintColor: "white",
+                tabBarInactiveTintColor: color.secondaryColor,
                 tabBarLabelStyle: {
                     fontWeight: "100",
                     fontSize: 13

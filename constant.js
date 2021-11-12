@@ -6,7 +6,10 @@ export const constant = {
 }
 
 export const color = {
-    primaryColor: "#4634eb"
+    primaryColor: "#c47ecc",
+    secondaryColor: "#643e69",
+    backgroundColor: "#c9adcc"
+    //#cccccc
 }
 
 // export {constant};

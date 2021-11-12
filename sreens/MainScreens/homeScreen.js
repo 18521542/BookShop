@@ -1,48 +1,47 @@
 import React from 'react'
-import { StyleSheet, FlatList} from 'react-native'
+import { StyleSheet, ScrollView, FlatList, View} from 'react-native'
 import BookGridTile from '../../components/BookGridTile'
 import { useSelector } from 'react-redux'
+import ContainerArea from '../../components/ContainerArea'
+import { color } from '../../constant'
+import { SafeAreaView } from 'react-native'
 // const dispatch = useDispatch();
 
 
 
 const homeScreen = ({navigation}) => {
-
     //get state
     const globalState = useSelector(state => state)
-
-    const renderGridItem = items =>{
-        const name = items.item.name;
-        const imgLink = items.item.imgLink;
-        const description = items.item.description;
-        return (
-            <BookGridTile 
-                name={name} 
-                imgLink={imgLink}
-                onSelect={ () => {
-                    navigation.navigate("Root", {
-                        screen:"homeScreen1",
-                        params:{
-                            description: description,
-                            name: name,
-                        }
-                    });
-                }}
-            />
-        )
-    }
     return (
-        <FlatList
-            numColumns={1}
-            data={globalState.book.data}
-            renderItem={renderGridItem}
-        />
+        <ScrollView style={styles.container}>
+            <ContainerArea 
+                title={"Product"}
+                data={globalState.book.data}
+            />
+            <ContainerArea 
+                title={"Recommend For You"}
+                data={globalState.book.data}
+            />
+            <ContainerArea 
+                title={"You may like"}
+                data={globalState.book.data}
+            />
+            <ContainerArea 
+                title={"Trending"}
+                data={globalState.book.data}
+            />
+        </ScrollView>
     )
 }
 
 export default homeScreen
 
 const styles = StyleSheet.create({
+    container:{
+        flexDirection:"column",
+        flex:1,
+        backgroundColor:color.backgroundColor,
+    },
     main:{
         flex:1,
         alignItems:"center",
