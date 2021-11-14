@@ -1,12 +1,11 @@
 import React from 'react'
 import { StyleSheet, ScrollView, FlatList, View} from 'react-native'
-import BookGridTile from '../../components/BookGridTile'
 import { useSelector } from 'react-redux'
 import ContainerArea from '../../components/ContainerArea'
-import { color } from '../../constant'
-import { SafeAreaView } from 'react-native'
-// const dispatch = useDispatch();
-
+import { color, constant } from '../../constant'
+import Logo from '../../components/Logo'
+import CartButton from '../../components/CartButton'
+import Header from '../../components/Header'
 
 
 const homeScreen = ({navigation}) => {
@@ -63,3 +62,20 @@ const styles = StyleSheet.create({
         width:30,
     }
 })
+
+export const homeScreenNavOption = (nav) => {
+    return {
+        headerTitle: () => (
+            <Header/>
+        ),
+        headerStyle:{
+            backgroundColor: color.primaryColor,
+        },
+        headerLeft: () => (<Logo/>),
+        headerRight: () => (
+            <CartButton 
+                onClick={()=>{nav.navigation.navigate(constant.cartScreenName)}}
+            />
+        )
+    }
+}

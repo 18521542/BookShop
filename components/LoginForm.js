@@ -7,38 +7,39 @@ import MyButton from './MyButton';
 const LoginForm = () => {
     return (
         <View style={styles.container}>
-            <Text/>
-            <Input 
-                style={styles.input}
-                placeholder='Email'
-                leftIcon={
-                    <Icon
-                        style={styles.icon}
-                        name='user'
-                        size={24}
-                        color='black'
-                    />
-                }
-            />
-            <Input
-                placeholder='Password'
-                leftIcon={
-                    <Icon
-                        style={styles.icon}
-                        name='briefcase'
-                        size={24}
-                        color='black'
-                    />
-                }
-                secureTextEntry={true}
-            />
-            <View style={{alignSelf:"center"}}>
-                <MyButton
-                    onClick={()=>{
-                    }}
-                    width={200}
-                    title={"Log-in"}
+            <View style={styles.inputContainer}>
+                <Input 
+                    style={styles.input}
+                    placeholder='Email'
+                    leftIcon={
+                        <Icon
+                            style={styles.icon}
+                            name='user'
+                            size={24}
+                            color='black'
+                        />
+                    }
                 />
+                <Input
+                    placeholder='Password'
+                    leftIcon={
+                        <Icon
+                            style={styles.icon}
+                            name='briefcase'
+                            size={24}
+                            color='black'
+                        />
+                    }
+                    secureTextEntry={true}
+                />
+                <View style={{alignSelf:"center"}}>
+                    <MyButton
+                        onClick={()=>{
+                        }}
+                        title={"Log-in"}
+                    />
+                </View>
+                
             </View>
         </View>
     )
@@ -70,6 +71,12 @@ const styles = StyleSheet.create({
         fontWeight:"bold",
     },
     icon:{
-        margin:5
+        marginLeft:10,
+        marginRight:10,
+    },
+    inputContainer:{
+        width:250,
+        alignSelf:"center",
+        marginTop:30,
     }
 })

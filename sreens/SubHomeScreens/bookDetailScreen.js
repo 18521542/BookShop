@@ -25,6 +25,14 @@ const bookDetailScreen = (props) => {
     )
 }
 
+export const navigationOptions = (nav) => {
+    const {description, name} = nav.route.params
+    return {
+        headerTitle: name,
+    }
+}
+
+
 export default bookDetailScreen
 
 const styles = StyleSheet.create({})

@@ -9,9 +9,7 @@ const CartButton = (props) => {
             <Icon
                 name="shopping-cart"
                 color="white"
-                onPress={()=>{
-                    //transfer to cart screen.
-                }}
+                onPress={props.onClick}
             />
         </View>
     )

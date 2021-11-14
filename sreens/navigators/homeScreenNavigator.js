@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import bookDetailScreen from '../SubHomeScreens/bookDetailScreen';
+import bookDetailScreen, { navigationOptions } from '../SubHomeScreens/bookDetailScreen';
 import homeScreen2 from '../SubHomeScreens/homeScreen2';
 import { constant } from '../../constant';
 
@@ -13,6 +13,7 @@ export const HomeScreenNavigator = () => {
             <HomeScreenStackNavigator.Screen
                 name={`${constant.bookDetailScreenName}`} 
                 component={bookDetailScreen}
+                options={navigationOptions}
             />
             <HomeScreenStackNavigator.Screen 
                 name="homeScreen2" 
@@ -21,3 +22,4 @@ export const HomeScreenNavigator = () => {
         </HomeScreenStackNavigator.Navigator>
     )
 }
+

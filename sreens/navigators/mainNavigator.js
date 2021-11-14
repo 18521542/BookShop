@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import homeScreen from "../MainScreens/homeScreen";
+import homeScreen, { homeScreenNavOption } from "../MainScreens/homeScreen";
 import settingScreen from "../MainScreens/settingScreen";
 import userScreen from "../MainScreens/userScreen";
 import { color, constant } from "../../constant";
@@ -45,7 +45,7 @@ export const MainScreenNavigator = () => {
             <tab.Screen 
                 name={constant.homeScreenName} 
                 component={homeScreen}
-                options={headerStyle}
+                options={homeScreenNavOption}
             />
             <tab.Screen 
                 name={constant.cartScreenName} 
@@ -57,13 +57,3 @@ export const MainScreenNavigator = () => {
     )
 }
 
-const headerStyle = {
-    headerTitle: () => (
-        <Header/>
-    ),
-    headerStyle:{
-        backgroundColor: color.primaryColor,
-    },
-    headerLeft: () => (<Logo></Logo>),
-    headerRight: () =>(<CartButton/>)
-}
