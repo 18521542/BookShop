@@ -4,7 +4,7 @@ import { addItem } from '../../store/actions/cart';
 import { useDispatch } from 'react-redux';
 import { useCallback, useEffect } from 'react';
 import CartButton from '../../components/CartButton';
-import { constant } from '../../constant';
+import { constant, color } from '../../constant';
 
 const bookDetailScreen = (props) => {
     const {description, name} = props.route.params
@@ -35,7 +35,10 @@ export const navigationOptions = (nav) => {
             <CartButton 
                 onClick={()=>{nav.navigation.navigate(constant.cartScreenName)}}
             />
-        )
+        ),
+        headerStyle:{
+            backgroundColor: color.primaryColor,
+        },
     }
 }
 

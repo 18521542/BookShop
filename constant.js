@@ -1,6 +1,6 @@
 export const constant = {
     //navigator
-    bottomTabNav:"Tab",
+    bottomTabNav:" ",
     homeScreenNav:"test2",
 
     //main screen
