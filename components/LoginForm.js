@@ -1,10 +1,45 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-
+import { TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native'
+import { Input } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import MyButton from './MyButton';
 const LoginForm = () => {
     return (
         <View style={styles.container}>
-            
+            <Text/>
+            <Input 
+                style={styles.input}
+                placeholder='Email'
+                leftIcon={
+                    <Icon
+                        style={styles.icon}
+                        name='user'
+                        size={24}
+                        color='black'
+                    />
+                }
+            />
+            <Input
+                placeholder='Password'
+                leftIcon={
+                    <Icon
+                        style={styles.icon}
+                        name='briefcase'
+                        size={24}
+                        color='black'
+                    />
+                }
+                secureTextEntry={true}
+            />
+            <View style={{alignSelf:"center"}}>
+                <MyButton
+                    onClick={()=>{
+                    }}
+                    width={200}
+                    title={"Log-in"}
+                />
+            </View>
         </View>
     )
 }
@@ -13,10 +48,28 @@ export default LoginForm
 
 const styles = StyleSheet.create({
     container:{
+        flexDirection:"column",
         width:300,
-        height:300,
+        height:400,
         backgroundColor:"white",
         borderRadius:20,
         shadowColor:"black",
+        marginTop:50,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 11,
+        },
+        shadowOpacity: 0.55,
+        shadowRadius: 14.78,
+        elevation: 22,
+    },
+    header:{
+        margin:10,
+        fontSize:20,
+        fontWeight:"bold",
+    },
+    icon:{
+        margin:5
     }
 })
