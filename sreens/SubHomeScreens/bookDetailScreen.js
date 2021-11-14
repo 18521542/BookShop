@@ -3,6 +3,8 @@ import { StyleSheet, Text, View ,Button} from 'react-native'
 import { addItem } from '../../store/actions/cart';
 import { useDispatch } from 'react-redux';
 import { useCallback, useEffect } from 'react';
+import CartButton from '../../components/CartButton';
+import { constant } from '../../constant';
 
 const bookDetailScreen = (props) => {
     const {description, name} = props.route.params
@@ -29,6 +31,11 @@ export const navigationOptions = (nav) => {
     const {description, name} = nav.route.params
     return {
         headerTitle: name,
+        headerRight: () => (
+            <CartButton 
+                onClick={()=>{nav.navigation.navigate(constant.cartScreenName)}}
+            />
+        )
     }
 }
 
