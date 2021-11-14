@@ -17,6 +17,7 @@ const homeScreen = ({navigation}) => {
             <ContainerArea 
                 title={"Product"}
                 data={globalState.book.data}
+                nav={navigation}
             />
             <ContainerArea 
                 title={"Recommend For You"}

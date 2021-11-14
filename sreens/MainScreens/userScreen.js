@@ -1,13 +1,13 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import LoginForm from '../../components/LoginForm'
 
 // import { constant } from '../../constant'
 
 const userScreen = (navigation) => {
     return (
-        <View>
-            <Text>This is user UserScreen</Text>
-            <Text> This is UserScreen</Text>
+        <View style={styles.container}>
+            <LoginForm/>
         </View>
     )
 }
@@ -15,9 +15,9 @@ const userScreen = (navigation) => {
 export default userScreen
 
 const styles = StyleSheet.create({
-    testText:{
+    container:{
         flex:1,
-        alignItems:'center',
-        justifyContent:'center',
+        flexDirection:"row",
+        justifyContent:"center"
     }
 })

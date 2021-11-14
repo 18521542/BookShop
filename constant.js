@@ -1,8 +1,16 @@
 export const constant = {
+    //navigator
+    bottomTabNav:"Tab",
+    homeScreenNav:"test2",
+
+    //main screen
     homeScreenName: "home",
     settingScreenName:"setting",
     userScreenName:"user",
-    cartScreenName:"cart"
+    cartScreenName:"cart",
+
+    //sub_screens: homeScreen
+    bookDetailScreenName:"detail"
 }
 
 export const color = {

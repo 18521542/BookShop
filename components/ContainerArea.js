@@ -1,21 +1,36 @@
 import React from 'react'
 import { SectionList } from 'react-native'
+import { TouchableOpacity } from 'react-native'
 import { SafeAreaView,Image } from 'react-native'
 import { StyleSheet, Text, View } from 'react-native'
 import { FlatList } from 'react-native-gesture-handler'
-import { color } from '../constant'
+import { color, constant } from '../constant'
 
 const ContainerArea = (props) => {
 
     const myRenderItem = (items) =>{
+        const eachBook = items.item;
+        const {description, name} = eachBook
         return (
             <View>
-                <Image
-                    style={styles.img}
-                    source={{
-                        uri:items.item.imgLink,
+                <TouchableOpacity 
+                    onPress = {() =>{
+                        props.nav.navigate(constant.homeScreenNav,{
+                            screen: `${constant.bookDetailScreenName}`,
+                            params: {
+                                description:description,
+                                name: name
+                            }
+                        })
                     }}
-                />
+                >
+                    <Image
+                        style={styles.img}
+                        source={{
+                            uri:items.item.imgLink,
+                        }}
+                    />
+                </TouchableOpacity>
             </View>
         )
     }

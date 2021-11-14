@@ -13,11 +13,6 @@ const bookDetailScreen = (props) => {
         dispatch(addItem(name));
     }, [dispatch, name])
 
-    // useEffect(()=>{
-    //     props.navigation.setParams({
-    //         addToCart: addToCartButtonHandler
-    //     })
-    // }, [addToCartButtonHandler])
     return (
         <View>
             <Button 

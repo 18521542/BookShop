@@ -17,12 +17,12 @@ function RoutingScreen(){
         <NavigationContainer>
             <MainStack.Navigator>
                 <MainStack.Screen
-                    name="bottom_main"
+                    name={constant.bottomTabNav}
                     component={MainScreenNavigator}
                     options={{ headerShown: false }}
                 />
                 <MainStack.Screen
-                    name={"Root"}
+                    name={`${constant.homeScreenNav}`}
                     component={HomeScreenNavigator}
                     options={{ headerShown: false }}
                 />
