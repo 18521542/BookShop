@@ -36,6 +36,9 @@ const LoginForm = () => {
                     <MyButton
                         onClick={()=>{
                         }}
+                        width={260}
+                        height={40}
+                        backgrColor={"blue"}
                         title={"Log-in"}
                     />
                 </View>
