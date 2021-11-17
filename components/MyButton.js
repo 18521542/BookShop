@@ -15,22 +15,15 @@ const MyButton = (props) => {
     )
 }
 
+export default MyButton
+
 const customStyle = (MyProps) => {
     const {backgrColor, textColor, width, height} = MyProps;
     return {
         backgroundColor: backgrColor,
         borderRadius:30,
         width:width,
-        height:height
+        height:height,
+        margin: 10,
     }
-
 }
-export default MyButton
-
-const styles = StyleSheet.create({
-    btn:{
-        backgroundColor:"red",
-        borderRadius:30,
-        width:260
-    }
-})

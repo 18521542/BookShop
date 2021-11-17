@@ -41,6 +41,15 @@ const LoginForm = () => {
                         backgrColor={"blue"}
                         title={"Log-in"}
                     />
+                    <MyButton
+                        onClick={()=>{
+                        }}
+                        width={260}
+                        height={40}
+                        backgrColor={"red"}
+                        title={"Sign-Up"}
+                    />
+
                 </View>
                 
             </View>

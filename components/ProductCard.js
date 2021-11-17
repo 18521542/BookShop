@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
         borderColor:"blue",
         flexDirection:"column",
         marginBottom:3,
-
     },
     img:{
         width:"100%",
