@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import homeScreen, { homeScreenNavOption } from "../MainScreens/homeScreen";
 import settingScreen from "../MainScreens/settingScreen";
-import userScreen from "../MainScreens/userScreen";
+import userScreen, { userScreenNavOption } from "../MainScreens/userScreen";
 import { color, constant } from "../../constant";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import React from 'react';
@@ -58,6 +58,7 @@ export const MainScreenNavigator = () => {
             <tab.Screen 
                 name={constant.userScreenName} 
                 component={userScreen}
+                options={userScreenNavOption}
             />
         </tab.Navigator>
     )

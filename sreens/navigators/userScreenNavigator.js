@@ -14,11 +14,11 @@ export const UserScreenNavigator = () => {
             <UserScreenStackNavigator.Screen
                 name={`${constant.registerScreenName}`} 
                 component={RegisterScreen}
+                options={userScreenNavOption}
             />
             <UserScreenStackNavigator.Screen
                 name={`${constant.userDetailScreenName}`} 
                 component={UserDetailScreen}
-                options={userScreenNavOption}
             />
         </UserScreenStackNavigator.Navigator>
     )

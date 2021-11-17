@@ -7,7 +7,12 @@ import { constant } from '../constant';
 import MyButton from './MyButton';
 const LoginForm = (props) => {
     const { nav } = props;
-    console.log(nav)
+
+    const goToRegisterScreen = () => {
+        nav.navigate(constant.userScreenNav, {
+            screen: constant.registerScreenName
+        })
+    }
     return (
         <View style={styles.container}>
             <View style={styles.inputContainer}>
@@ -45,11 +50,7 @@ const LoginForm = (props) => {
                         title={"Log-in"}
                     />
                     <MyButton
-                        onClick={()=>{
-                            nav.navigate(constant.userScreenNav, {
-                                screen: constant.registerScreenName
-                            })
-                        }}
+                        onClick={goToRegisterScreen}
                         width={260}
                         height={40}
                         backgrColor={"red"}

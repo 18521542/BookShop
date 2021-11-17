@@ -6,7 +6,6 @@ import {color} from "../../constant"
 // import { constant } from '../../constant'
 
 const userScreen = (props) => {
-    console.log(props.navigation)
     return (
         <View style={styles.container}>
             <LoginForm
@@ -28,18 +27,12 @@ const styles = StyleSheet.create({
 
 export const userScreenNavOption = (nav) => {
     return {
-        headerTitle: () => (
-            <Text>Logo</Text>
-        ),
-        headerShown: () => false,
-        headerStyle:{
-            backgroundColor: color.primaryColor,
-        },
-        // headerLeft: () => (<Logo/>),
-        // headerRight: () => (
-        //     <CartButton 
-        //         onClick={()=>{nav.navigation.navigate(constant.cartScreenName)}}
-        //     />
-        // )
+        // headerTitle: () => (
+        //     <Text>Logo</Text>
+        // ),
+        headerShown: false,
+        // headerStyle:{
+        //     backgroundColor: color.primaryColor,
+        // },
     }
 }

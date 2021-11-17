@@ -2,10 +2,9 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { Button } from 'react-native-elements/dist/buttons/Button'
 
-//props: width, height, onclick, color
+//props: width, height, onclick, backgrColor
 
 const MyButton = (props) => {
-    
     return (
         <Button
             title={props.title}
