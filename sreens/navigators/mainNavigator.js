@@ -51,8 +51,14 @@ export const MainScreenNavigator = () => {
                 name={constant.cartScreenName} 
                 component={cartScreen}
             />
-            <tab.Screen name={constant.settingScreenName} component={settingScreen}/>
-            <tab.Screen name={constant.userScreenName} component={userScreen}/>
+            <tab.Screen 
+                name={constant.settingScreenName} 
+                component={settingScreen}
+            />
+            <tab.Screen 
+                name={constant.userScreenName} 
+                component={userScreen}
+            />
         </tab.Navigator>
     )
 }

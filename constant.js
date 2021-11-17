@@ -2,6 +2,7 @@ export const constant = {
     //navigator
     bottomTabNav:" ",
     homeScreenNav:"test2",
+    userScreenNav:"User",
 
     //main screen
     homeScreenName: "home",
@@ -9,8 +10,12 @@ export const constant = {
     userScreenName:"user",
     cartScreenName:"cart",
 
-    //sub_screens: homeScreen
-    bookDetailScreenName:"detail"
+    //sub_HomeScreens: 
+    bookDetailScreenName:"detail",
+
+    //sub_UserScreens: 
+    registerScreenName:"R",
+    userDetailScreenName:"D",
 }
 
 export const color = {

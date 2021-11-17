@@ -3,8 +3,11 @@ import { TouchableHighlight } from 'react-native';
 import { StyleSheet, Text, View, Button } from 'react-native'
 import { Input } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { constant } from '../constant';
 import MyButton from './MyButton';
-const LoginForm = () => {
+const LoginForm = (props) => {
+    const { nav } = props;
+    console.log(nav)
     return (
         <View style={styles.container}>
             <View style={styles.inputContainer}>
@@ -43,6 +46,9 @@ const LoginForm = () => {
                     />
                     <MyButton
                         onClick={()=>{
+                            nav.navigate(constant.userScreenNav, {
+                                screen: constant.registerScreenName
+                            })
                         }}
                         width={260}
                         height={40}

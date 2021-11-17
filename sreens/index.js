@@ -8,6 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { MainScreenNavigator } from "./navigators/mainNavigator";
 import { HomeScreenNavigator } from "./navigators/homeScreenNavigator";
 import { constant } from "../constant";
+import { UserScreenNavigator } from "./navigators/userScreenNavigator";
 
 const MainStack = createStackNavigator();
 
@@ -25,6 +26,10 @@ function RoutingScreen(){
                     name={`${constant.homeScreenNav}`}
                     component={HomeScreenNavigator}
                     options={{ headerShown: false }}
+                />
+                <MainStack.Screen
+                    name={`${constant.userScreenNav}`}
+                    component={UserScreenNavigator}
                 />
             </MainStack.Navigator>
         </NavigationContainer>
