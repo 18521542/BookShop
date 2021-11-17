@@ -1,11 +1,12 @@
 import React from 'react'
 import { StyleSheet, ScrollView, FlatList, View} from 'react-native'
 import { useSelector } from 'react-redux'
-import ContainerArea from '../../components/ContainerArea'
+import Carousel from '../../components/ContainerArea'
 import { color, constant } from '../../constant'
 import Logo from '../../components/Logo'
 import CartButton from '../../components/CartButton'
 import Header from '../../components/Header'
+import ListContainer from '../../components/ListContainer'
 
 
 const homeScreen = ({navigation}) => {
@@ -13,22 +14,15 @@ const homeScreen = ({navigation}) => {
     const globalState = useSelector(state => state)
     return (
         <ScrollView style={styles.container}>
-            <ContainerArea 
+            <Carousel 
                 title={"Product"}
                 data={globalState.book.data}
                 nav={navigation}
             />
-            <ContainerArea 
-                title={"Recommend For You"}
+            <ListContainer
                 data={globalState.book.data}
-            />
-            <ContainerArea 
-                title={"You may like"}
-                data={globalState.book.data}
-            />
-            <ContainerArea 
-                title={"Trending"}
-                data={globalState.book.data}
+                title="New"
+                nav={navigation}
             />
         </ScrollView>
     )
