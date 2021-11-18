@@ -2,17 +2,18 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import RoutingScreen from './sreens'
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import cartReducer from "./store/reducers/cart";
 import { Provider } from 'react-redux';
 import bookReducer from './store/reducers/book';
+import ReduxThunk from "redux-thunk"
 
 const rootReducer = combineReducers({
   cart: cartReducer, 
   book: bookReducer
 });
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 export default function App() {
   return (

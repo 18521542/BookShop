@@ -25,4 +25,6 @@ export const color = {
     //#cccccc
 }
 
+export const API_ENDPOINT = "localhost:5433" || process.env.API_ENDPOINT;
+
 // export {constant};
