@@ -1,3 +1,5 @@
+import Constants from "expo-constants";
+
 export const constant = {
     //navigator
     bottomTabNav:" ",
@@ -25,6 +27,14 @@ export const color = {
     //#cccccc
 }
 
-export const API_ENDPOINT = "localhost:5433" || process.env.API_ENDPOINT;
+const GET_API_ENDPOINT = () => {
+    const { manifest } = Constants;
+
+    const localUri = `http://${manifest.debuggerHost.split(':').shift()}:5433`;
+
+    return process.env.API_ENDPOINT || localUri
+};
+
+export const API_ENDPOINT = GET_API_ENDPOINT();
 
 // export {constant};
