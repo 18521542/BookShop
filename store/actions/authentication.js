@@ -19,11 +19,18 @@ export const register = (payload) => {
                 password: payload.Password
             })
         })
-        // console.log(JSON.stringify(res.body))
+        if(res.ok){
+            const result = await res.json();
+        }
         dispatch({
             type: auth_action.register,
             userInfo: payload,
         })
+    }
+}
 
+export const login = (payload) => {
+    return async dispatch => {
+        const register_api = API_ENDPOINT + "/api/account/create"
     }
 }
