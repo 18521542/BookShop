@@ -3,8 +3,9 @@ import { StyleSheet, Text, View } from 'react-native'
 import { Input } from 'react-native-elements/dist/input/Input'
 import { ScrollView } from 'react-native-gesture-handler'
 import MyButton from '../../components/MyButton'
-import { useState, useEffect } from 'react'
-
+import { useState, useCallback } from 'react'
+import { useDispatch } from 'react-redux'
+import { register } from '../../store/actions/authentication'
 const RegisterScreen = (props) => {
 
     const [Username, setUsername] = useState("")
@@ -24,9 +25,12 @@ const RegisterScreen = (props) => {
         address,
         Email
     }
-    const register = ()=>{
-        console.log(userInfo)
-    }
+
+    const dispatch = useDispatch()
+    const registerHandler = useCallback(() => {
+        dispatch(register(userInfo))
+    }, [{...userInfo}, dispatch])
+
     return (
         <ScrollView style={styles.container}>
             <Text>Username</Text>
@@ -56,7 +60,7 @@ const RegisterScreen = (props) => {
                     height={40}
                     backgrColor="red"
                     title="Register"
-                    onClick={register}
+                    onClick={registerHandler}
                 />
             </View>
 

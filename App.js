@@ -7,10 +7,12 @@ import cartReducer from "./store/reducers/cart";
 import { Provider } from 'react-redux';
 import bookReducer from './store/reducers/book';
 import ReduxThunk from "redux-thunk"
+import authReducer from './store/reducers/authentication';
 
 const rootReducer = combineReducers({
   cart: cartReducer, 
-  book: bookReducer
+  book: bookReducer,
+  auth: authReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
