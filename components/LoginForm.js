@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { constant } from '../constant';
 import MyButton from './MyButton';
 const LoginForm = (props) => {
-    const { nav } = props;
+    const { nav, setLogin } = props;
 
     const goToRegisterScreen = () => {
         nav.navigate(constant.userScreenNav, {
@@ -42,8 +42,7 @@ const LoginForm = (props) => {
                 />
                 <View style={{alignSelf:"center"}}>
                     <MyButton
-                        onClick={()=>{
-                        }}
+                        onClick={() => setLogin(true)}
                         width={260}
                         height={40}
                         backgrColor={"blue"}
