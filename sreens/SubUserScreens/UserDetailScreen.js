@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import MyButton from '../../components/MyButton'
 
 const UserDetailScreen = (props) => {
-    const {setLogin} = props;
+    const {user} = props;
     return (
         <View style={styles.container}>
             <Text>User Detail</Text>
@@ -12,7 +12,7 @@ const UserDetailScreen = (props) => {
                 height={50}
                 backgrColor="blue"
                 title="Logout"
-                onClick={() => setLogin(false)}
+                onClick={()=>{console.log("logout")}}
             />
         </View>
     )

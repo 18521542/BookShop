@@ -4,19 +4,22 @@ import LoginForm from '../../components/LoginForm'
 import {color} from "../../constant"
 import { useState, useEffect } from 'react'
 import UserDetailScreen from '../SubUserScreens/UserDetailScreen'
+import { useSelector } from 'react-redux'
+import { login } from '../../store/actions/authentication'
 // import { constant } from '../../constant'
 
 const userScreen = (props) => {
-    const [isLogin, setLogin] = useState(false)
+    const auth_state = useSelector(state => state.auth)
+    console.log(auth_state)
+    const { isSignedIn } = auth_state
+
     return (
         <View style={styles.container}>
-            {!isLogin ? 
+            {!isSignedIn ? 
                 (<LoginForm
                     nav={props.navigation}
-                    setLogin={setLogin}
                 />
                 ) : (<UserDetailScreen
-                        setLogin={setLogin}
                         nav={props.navigation}
                     />
                 )

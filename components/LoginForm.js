@@ -5,14 +5,34 @@ import { Input } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { constant } from '../constant';
 import MyButton from './MyButton';
+import { useState, useCallback } from 'react';
+import { login } from '../store/actions/authentication';
+
+import { useDispatch } from 'react-redux';
+
 const LoginForm = (props) => {
     const { nav, setLogin } = props;
 
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const userInfo = {
+        username,
+        password,
+    }
+
+    const dispatch = useDispatch()
+    const LoginHandler = useCallback(
+        () => { dispatch(login(userInfo)) }, 
+        [{...userInfo}, dispatch]
+    )
     const goToRegisterScreen = () => {
         nav.navigate(constant.userScreenNav, {
             screen: constant.registerScreenName
         })
     }
+
+    // const dispatch = useDispatch()
+    // const LogicHandler = useCallback()
     return (
         <View style={styles.container}>
             <View style={styles.inputContainer}>
@@ -27,6 +47,7 @@ const LoginForm = (props) => {
                             color='black'
                         />
                     }
+                    onChangeText={setUsername}
                 />
                 <Input
                     placeholder='Password'
@@ -39,10 +60,11 @@ const LoginForm = (props) => {
                         />
                     }
                     secureTextEntry={true}
+                    onChangeText={setPassword}
                 />
                 <View style={{alignSelf:"center"}}>
                     <MyButton
-                        onClick={() => setLogin(true)}
+                        onClick={LoginHandler}
                         width={260}
                         height={40}
                         backgrColor={"blue"}
