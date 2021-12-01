@@ -10,7 +10,6 @@ import { login } from '../../store/actions/authentication'
 
 const userScreen = (props) => {
     const auth_state = useSelector(state => state.auth)
-    console.log(auth_state)
     const { isSignedIn } = auth_state
 
     return (

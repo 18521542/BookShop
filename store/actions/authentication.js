@@ -45,10 +45,13 @@ export const login = (payload) => {
 
         if(res.ok){
             const result = await res.json();
-            // console.log(result)
-            dispatch({
+            const dispatch_to_reducer = (result.access_jwt_token) ? dispatch({
                 type: auth_action.login,
-                userInfo: payload
+                userInfo: payload,
+                isAuthenticated: true
+            }) : dispatch({
+                type: auth_action.login,
+                userInfo: payload,
             })
         }
         else {
@@ -61,11 +64,8 @@ export const login = (payload) => {
     }
 }
 
-export const logout = (payload) => {
-    return async dispatch => {
-        dispatch({
-            type: auth_action.logout,
-            userInfo: payload
-        })
+export const logout = () => {
+    return {
+        type: auth_action.logout,
     }
 }
