@@ -15,6 +15,7 @@ const LoginForm = (props) => {
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [isValid, setIsValid] = useState(false)
     const userInfo = {
         username,
         password,
@@ -31,12 +32,16 @@ const LoginForm = (props) => {
         })
     }
 
-    // const dispatch = useDispatch()
-    // const LogicHandler = useCallback()
+    const TextHandler = (text) => {
+        (text.trim().length===0) ? setIsValid(true) : setIsValid(false) 
+        setUsername(text)
+    }
     return (
         <View style={styles.container}>
             <View style={styles.inputContainer}>
-                <Input 
+                <Input
+                    errorStyle={{ color: 'red', marginLeft:10 }}  
+                    errorMessage={(isValid)? 'You must enter a valid email!': ""} 
                     style={styles.input}
                     placeholder='Email'
                     leftIcon={
@@ -47,7 +52,7 @@ const LoginForm = (props) => {
                             color='black'
                         />
                     }
-                    onChangeText={setUsername}
+                    onChangeText={TextHandler}
                 />
                 <Input
                     placeholder='Password'
