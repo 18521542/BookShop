@@ -22,7 +22,12 @@ const authReducer = (state = initialState, action) => {
                 ...state
             }
         case auth_action.login:
-            const { username, password, access_jwt_token, refresh_jwt_token } = action.userInfo
+            const { 
+                username, 
+                password, 
+                access_jwt_token, 
+                refresh_jwt_token 
+            } = action.userInfo
 
             const newState = {
                 ...state,
@@ -35,6 +40,7 @@ const authReducer = (state = initialState, action) => {
                 }
             }
             const currentState = {...state};
+
             return (action.isAuthenticated)? newState : currentState
         case auth_action.logout:
             return {

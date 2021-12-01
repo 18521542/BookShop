@@ -31,36 +31,36 @@ export const register = (payload) => {
 
 export const login = (payload) => {
     return async dispatch => {
-        const login_api = API_ENDPOINT + "/api/account/login"
-        const res = await fetch(login_api, {
-            method: "POST",
-            headers:{
-                'Content-Type':'application/json'
-            },
-            body: JSON.stringify({
-                username: payload.username,
-                password: payload.password
+        // try{
+            const login_api = API_ENDPOINT + "/api/account/login"
+                const res = await fetch(login_api, {
+                method: "POST",
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body: JSON.stringify({
+                    username: payload.username,
+                    password: payload.password
+                })
             })
-        })
 
-        if(res.ok){
-            const result = await res.json();
-            const dispatch_to_reducer = (result.access_jwt_token) ? dispatch({
-                type: auth_action.login,
-                userInfo: payload,
-                isAuthenticated: true
-            }) : dispatch({
-                type: auth_action.login,
-                userInfo: payload,
-            })
-        }
-        else {
-            dispatch({
-                type: auth_action.login,
-                userInfo: payload
-            })
-        }
-        
+            if(res.ok){
+                const result = await res.json();
+                if(result.access_jwt_token){
+                    dispatch({
+                        type: auth_action.login,
+                        userInfo: payload,
+                        isAuthenticated: true
+                    })
+                }
+                else{
+                    throw new Error(result.message)
+                }
+            }
+        // }
+        // catch(err){
+            
+        // }
     }
 }
 

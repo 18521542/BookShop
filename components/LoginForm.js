@@ -1,6 +1,5 @@
-import React from 'react'
-import { TouchableHighlight } from 'react-native';
-import { StyleSheet, Text, View, Button } from 'react-native'
+import React, { useEffect } from 'react'
+import { StyleSheet, Text, View, Button, ActivityIndicator, Alert } from 'react-native'
 import { Input } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { constant } from '../constant';
@@ -8,14 +7,16 @@ import MyButton from './MyButton';
 import { useState, useCallback } from 'react';
 import { login } from '../store/actions/authentication';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const LoginForm = (props) => {
-    const { nav, setLogin } = props;
-
+    const { nav } = props;
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [isNotValid, setIsNotValid] = useState(false)
+    const [isPasswordNotValid, setIsPasswordNotValid] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
+    const [err, setErr] = useState(null)
     const userInfo = {
         username,
         password,
@@ -23,14 +24,29 @@ const LoginForm = (props) => {
 
     const dispatch = useDispatch()
     const LoginHandler = useCallback(
-        () => {
+        async () => {
             if(!username || !password){
                 setIsNotValid(true)
+                setIsPasswordNotValid(true)
+            }
+            setIsLoading(true)
+            try{
+                await dispatch(login(userInfo))
             } 
-            dispatch(login(userInfo)) 
+            catch(err){
+                setErr(err)
+                setIsLoading(false) 
+            }
         }, 
         [{...userInfo}, dispatch]
     )
+
+    useEffect(() => {
+        if(err){
+            Alert.alert(err.toString())
+        }
+    },[err])
+
     const goToRegisterScreen = () => {
         nav.navigate(constant.userScreenNav, {
             screen: constant.registerScreenName
@@ -41,11 +57,16 @@ const LoginForm = (props) => {
         (text.trim().length===0) ? setIsNotValid(true) : setIsNotValid(false) 
         setUsername(text)
     }
+
+    const PasswordHandler = (text) => {
+        (text.trim().length===0) ? setIsPasswordNotValid(true) : setIsPasswordNotValid(false) 
+        setPassword(text)
+    }
     return (
         <View style={styles.container}>
             <View style={styles.inputContainer}>
                 <Input
-                    errorStyle={{ color: 'red', marginLeft:10 }}  
+                    errorStyle={{ color: 'red', marginLeft:43 }}  
                     errorMessage={(isNotValid)? 'You must enter a valid email!': ""} 
                     style={styles.input}
                     placeholder='Email'
@@ -61,6 +82,8 @@ const LoginForm = (props) => {
                 />
                 <Input
                     placeholder='Password'
+                    errorStyle={{ color: 'red', marginLeft:43 }}  
+                    errorMessage={(isPasswordNotValid)? 'You must enter a valid password!': ""} 
                     leftIcon={
                         <Icon
                             style={styles.icon}
@@ -70,16 +93,17 @@ const LoginForm = (props) => {
                         />
                     }
                     secureTextEntry={true}
-                    onChangeText={setPassword}
+                    onChangeText={PasswordHandler}
                 />
                 <View style={{alignSelf:"center"}}>
-                    <MyButton
+                {(isLoading) ? <ActivityIndicator size={60}/> 
+                    : <MyButton
                         onClick={LoginHandler}
                         width={260}
                         height={40}
                         backgrColor={"blue"}
                         title={"Log-in"}
-                    />
+                    />}
                     <MyButton
                         onClick={goToRegisterScreen}
                         width={260}
