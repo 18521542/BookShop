@@ -15,7 +15,7 @@ const LoginForm = (props) => {
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [isValid, setIsValid] = useState(false)
+    const [isNotValid, setIsNotValid] = useState(false)
     const userInfo = {
         username,
         password,
@@ -23,7 +23,12 @@ const LoginForm = (props) => {
 
     const dispatch = useDispatch()
     const LoginHandler = useCallback(
-        () => { dispatch(login(userInfo)) }, 
+        () => {
+            if(!username || !password){
+                setIsNotValid(true)
+            } 
+            dispatch(login(userInfo)) 
+        }, 
         [{...userInfo}, dispatch]
     )
     const goToRegisterScreen = () => {
@@ -33,7 +38,7 @@ const LoginForm = (props) => {
     }
 
     const TextHandler = (text) => {
-        (text.trim().length===0) ? setIsValid(true) : setIsValid(false) 
+        (text.trim().length===0) ? setIsNotValid(true) : setIsNotValid(false) 
         setUsername(text)
     }
     return (
@@ -41,7 +46,7 @@ const LoginForm = (props) => {
             <View style={styles.inputContainer}>
                 <Input
                     errorStyle={{ color: 'red', marginLeft:10 }}  
-                    errorMessage={(isValid)? 'You must enter a valid email!': ""} 
+                    errorMessage={(isNotValid)? 'You must enter a valid email!': ""} 
                     style={styles.input}
                     placeholder='Email'
                     leftIcon={
