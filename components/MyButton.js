@@ -21,8 +21,8 @@ const customStyle = (MyProps) => {
     return {
         backgroundColor: backgrColor,
         borderRadius:30,
-        width:width,
-        height:height,
+        width: width || 260,
+        height:height || 50,
         margin: 10,
     }
 }
