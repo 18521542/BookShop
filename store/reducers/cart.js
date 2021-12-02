@@ -2,22 +2,23 @@ import { add_item_to_cart } from "../actions/cart";
 
 const initialState = {
     total: 0,
-    bookName: [],
+    bookNames: [],
+    books:[],
 }
 
 const cartReducer = (state = initialState, action) => {
     switch(action.type){
         case add_item_to_cart:
-            const existingItem = state.bookName.findIndex(item => item === action.itemName);
+            const existingItem = state.bookNames.findIndex(item => item === action.itemName);
             if(existingItem>=0){
                 return { ...state };
             } else {
                 let newTotal = ++state.total;
-                let newBooks = state.bookName.concat(action.itemName);
+                let newBooks = state.bookNames.concat(action.itemName);
                 return {
                     ...state,
                     total: newTotal,
-                    bookName: newBooks
+                    bookNames: newBooks
                 }
             }
         default:

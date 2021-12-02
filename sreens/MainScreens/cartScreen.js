@@ -8,19 +8,23 @@ import Footer from '../../components/Cart/Footer';
 import { color } from '../../constant';
 
 const cartScreen = () => {
-    const {bookName, total} = useSelector(state => state.cart);
+    const {bookNames, total} = useSelector(state => state.cart);
+
 
     const renderMyItem = (items) => {
-        console.log(bookName)
+        const eachItem = items.item;
+        console.log(eachItem)
         return(
-            <CartItem>{items.item}</CartItem>
+            <CartItem 
+                name={items.item}
+            />
         )
     }
     return (
         <View style={styles.container}>
             <FlatList
                 renderItem={renderMyItem}
-                data={bookName}
+                data={bookNames}
             />
             <Footer/>
         </View>

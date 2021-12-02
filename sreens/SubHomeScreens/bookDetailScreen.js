@@ -8,12 +8,12 @@ import { constant, color } from '../../constant';
 
 const bookDetailScreen = (props) => {
     const {description, name} = props.route.params
-    
+    const selectedBook = props.route.params
     //action
     const dispatch = useDispatch();
     const addToCartButtonHandler = useCallback(() => {
-        dispatch(addItem(name));
-    }, [dispatch, name])
+        dispatch(addItem(selectedBook));
+    }, [dispatch, selectedBook])
 
     return (
         <View>
