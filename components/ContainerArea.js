@@ -27,7 +27,7 @@ const ContainerArea = (props) => {
                     <Image
                         style={styles.img}
                         source={{
-                            uri:items.item.imgLink,
+                            uri:items.item.image_url,
                         }}
                     />
                 </TouchableOpacity>

@@ -1,4 +1,5 @@
 import { BOOKS } from "../../dummy-data/BOOK";
+import { FETCH_BOOKS } from "../actions/book";
 
 
 const initialState = {
@@ -7,7 +8,15 @@ const initialState = {
 }
 
 const bookReducer = (state = initialState, action) => {
-    return state;
+    switch(action.type){
+        case FETCH_BOOKS:
+            return {
+                ...state,
+                data: action.data
+            };
+        default:
+            return state;
+    }
 }
 
 export default bookReducer;
