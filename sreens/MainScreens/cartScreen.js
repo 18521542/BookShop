@@ -13,10 +13,11 @@ const cartScreen = () => {
 
     const renderMyItem = (items) => {
         const eachItem = items.item;
-        console.log(eachItem)
+        // console.log(eachItem)
         return(
             <CartItem 
-                name={items.item}
+                name={eachItem.name}
+                description={eachItem.description}
             />
         )
     }
