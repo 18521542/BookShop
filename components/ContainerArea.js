@@ -19,7 +19,8 @@ const ContainerArea = (props) => {
                             screen: `${constant.bookDetailScreenName}`,
                             params: {
                                 description:description,
-                                name: name
+                                name: name,
+                                selectedBook: eachBook,
                             }
                         })
                     }}
