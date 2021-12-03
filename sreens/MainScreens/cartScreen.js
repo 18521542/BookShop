@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     container:{
         flex:1,
         flexDirection:"column",
-        backgroundColor:"#eae1ed"
+        backgroundColor: color.cartBackground
     },
     color:{
         backgroundColor:color.primaryColor,

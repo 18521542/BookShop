@@ -21,9 +21,11 @@ export const constant = {
 }
 
 export const color = {
-    primaryColor: "#c47ecc",
-    secondaryColor: "#643e69",
-    backgroundColor: "#c9adcc"
+    primaryColor: "#7d6fe8",
+    secondaryColor: "#1c2026",
+    backgroundColor: "white",
+    cartBackground: "#e4edea",
+    bookDetailBackground:"#e4edea"
     //#cccccc
 }
 
