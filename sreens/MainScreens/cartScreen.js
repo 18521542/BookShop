@@ -37,7 +37,8 @@ export default cartScreen
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        flexDirection:"column"
+        flexDirection:"column",
+        backgroundColor:"#eae1ed"
     },
     color:{
         backgroundColor:color.primaryColor,

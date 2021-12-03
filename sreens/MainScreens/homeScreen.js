@@ -14,21 +14,11 @@ import { Button } from 'react-native-elements'
 const homeScreen = ({navigation}) => {
     //get state
     const globalState = useSelector(state => state)
-    let bookdata = [];
     const dispatch = useDispatch();
-    const fetch_book = useCallback(
-        () => {
-            dispatch(fetch_books())
-        },
-        [dispatch, bookdata],
-    )
+    useEffect(() => {
+        dispatch(fetch_books())
+    }, [dispatch])
 
-    // useEffect(() => {
-    //     const call_api = async () => await fetch_book();
-    //     call_api();
-    // }, [bookdata])
-
-    // console.log(bookdata)
     return (
         <ScrollView style={styles.container}>
             <Carousel 
@@ -40,9 +30,6 @@ const homeScreen = ({navigation}) => {
                 data={globalState.book.data}
                 title="New"
                 nav={navigation}
-            />
-            <Button title = "fetch"
-                onPress={fetch_book}
             />
         </ScrollView>
     )

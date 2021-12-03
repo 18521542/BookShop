@@ -13,21 +13,7 @@ const CartItem = (props) => {
         name,  
         // imgLink
     } = props;
-    const handlePrice = price => {
-        if (price !== undefined) {
-          var priceFormat = '';
-          while (price > 1000) {
-            if (price % 1000 !== 0) {
-              priceFormat = '.' + (price % 1000) + priceFormat;
-            } else {
-              priceFormat = '.000' + priceFormat;
-            }
-            price = Math.floor(price / 1000);
-          }
-          return price.toString().concat(priceFormat);
-        }
-        return '';
-      };
+    
     const imgLink = "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
     return (
         <View style={styles.container}>
@@ -45,6 +31,22 @@ const CartItem = (props) => {
         </View>
     )
 }
+
+export const handlePrice = price => {
+    if (price !== undefined) {
+      var priceFormat = '';
+      while (price > 1000) {
+        if (price % 1000 !== 0) {
+          priceFormat = '.' + (price % 1000) + priceFormat;
+        } else {
+          priceFormat = '.000' + priceFormat;
+        }
+        price = Math.floor(price / 1000);
+      }
+      return price.toString().concat(priceFormat);
+    }
+    return '';
+  };
 
 export default CartItem
 
