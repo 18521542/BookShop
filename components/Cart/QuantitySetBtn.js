@@ -42,10 +42,10 @@ const styles = StyleSheet.create({
         width:130,
         height:30,
         borderRadius:20,
-        backgroundColor:"green",
+        backgroundColor:"orange",
         flexDirection:"row",
         justifyContent:"space-between",
-        marginTop:25,
+        // marginTop:25,
     },
     btn:{
         alignSelf:"center",
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
         alignSelf:"center",
         backgroundColor:"white",
         height:"90%",
-        backgroundColor:"green",
+        backgroundColor:"orange",
         alignContent:"center"
     },
     quantity:{

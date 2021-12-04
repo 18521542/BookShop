@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import { Icon } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native';
 import QuantitySetBtn from './QuantitySetBtn';
+import { Divider } from 'react-native-elements';
 
 const CartItem = (props) => {
     // const {price, name, quantity, imgLink} = props;
@@ -23,11 +24,13 @@ const CartItem = (props) => {
                     uri:imgLink,
                 }}
             />
+            <Divider/>
             <View style={styles.contentContainer}>
                 <Text style={styles.title}>{`${props.name}`}</Text>
                 <Text style={styles.price}>{`Giá bán : ${handlePrice(price)}đ`}</Text>
-                <QuantitySetBtn/>
+                <View style={styles.qttContainer}><QuantitySetBtn style={styles.qttSet}/></View>
             </View>
+            
         </View>
     )
 }
@@ -52,8 +55,11 @@ export default CartItem
 
 const styles = StyleSheet.create({
     container:{
+        flex:1,
+        padding:10,
         width:"95%",
-        height: 120,
+        minHeight: 150,
+        borderRadius:30,
         backgroundColor:"white",
         margin: 7,
         flex:1,
@@ -66,23 +72,27 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.37,
         shadowRadius: 7.49,
-
         elevation: 12,
     },
     itemImage:{
-        width:"25%",
-        height:"80%",
+        width:"35%",
+        height:"100%",
         alignSelf:"center",
-        margin:10
+        marginRight: 10,
+        borderTopLeftRadius:30,
+        borderBottomLeftRadius:30,
     },
     title:{
-        marginTop:8,
         fontSize:20,
         fontWeight:"bold"
     },
     contentContainer:{
         flexDirection:"column",
         flex:1,
+        borderTopRightRadius:30,
+        borderBottomRightRadius:30,
+        padding:5,
+        paddingTop:10
     },
     price:{
         marginTop: 5,
@@ -91,6 +101,10 @@ const styles = StyleSheet.create({
         color:"green"
     },
     qttSet:{
-        marginTop:3,
+        marginBottom:5,
+    },
+    qttContainer:{
+        borderBottomRightRadius:30,
+        marginTop:10
     }
 })

@@ -15,8 +15,6 @@ const bookDetailScreen = (props) => {
 
     const list_author = selectedBook.author;
     const list_category = selectedBook.category;
-
-    console.log(list_author)
     
     const imgLink = selectedBook.image_url;
     //action
@@ -77,7 +75,7 @@ const bookDetailScreen = (props) => {
 export const navigationOptions = (nav) => {
     const {description, name} = nav.route.params
     return {
-        headerTitle: name,
+        headerTitle: "Thông tin chi tiết",
         headerRight: () => (
             <CartButton 
                 onClick={()=>{nav.navigation.navigate(constant.cartScreenName)}}
