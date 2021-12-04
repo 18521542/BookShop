@@ -2,14 +2,19 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import MyButton from '../MyButton'
 import { handlePrice } from './CartItem'
+import { useSelector } from 'react-redux'
 
 const Footer = (props) => {
-    const totalPrice = 2000;
+    const cart = useSelector(state => state.cart)
+    const {totalMoney} = cart;
+    const totalPrice = totalMoney || 0;
+
+    // console.log(cart)
     return (
         <View style={styles.container}>
             <View style={styles.content}>
                 <Text style={styles.leftLabel}>Tổng cộng:</Text>
-                <Text style={styles.rightLabel}>{`${handlePrice(totalPrice)}đ`}</Text>
+                <Text style={styles.rightLabel}>{`${handlePrice(totalMoney)}đ`}</Text>
             </View>
             <View style={styles.btn}>
                 <MyButton

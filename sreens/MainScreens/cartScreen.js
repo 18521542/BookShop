@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { Button } from 'react-native-elements/dist/buttons/Button';
 import { FlatList } from 'react-native-gesture-handler';
@@ -8,24 +8,27 @@ import Footer from '../../components/Cart/Footer';
 import { color } from '../../constant';
 
 const cartScreen = () => {
-    const {bookNames, total} = useSelector(state => state.cart);
+    const {bookItems, total} = useSelector(state => state.cart);
 
-
+    const cart = useSelector(state => state.cart);
+    
     const renderMyItem = (items) => {
+        console.log("render")
         const eachItem = items.item;
-        // console.log(eachItem)
         return(
-            <CartItem 
+            <CartItem
+                item={eachItem} 
                 name={eachItem.name}
                 description={eachItem.description}
             />
         )
     }
+
     return (
         <View style={styles.container}>
             <FlatList
                 renderItem={renderMyItem}
-                data={bookNames}
+                data={bookItems}
             />
             <Footer/>
         </View>

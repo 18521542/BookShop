@@ -1,22 +1,41 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { Icon } from 'react-native-elements'
 import { useState } from 'react'
 import { TouchableOpacity } from 'react-native'
 import { Input } from 'react-native-elements/dist/input/Input'
-const QuantitySetBtn = () => {
+import { Alert } from 'react-native'
+import { useDispatch, useCallback } from 'react-redux'
+import { decreaseItem, increaseItem, removeItem } from '../../store/actions/cart'
+
+const QuantitySetBtn = (props) => {
     const [quantity, setquantity] = useState(1)
+    const {item} = props;
+
+    const dispatch = useDispatch();
+
     const increaseHandler = () => {
         const updateValue = quantity+1;
         setquantity(updateValue)
+        dispatch(increaseItem(item))
+    }
+
+    const removeItemFromCart = () => {
+        dispatch(removeItem(item))
     }
     const decreaseHandler = () => {
         const updateValue = quantity-1
-        if(updateValue<0){
-            setquantity(0)
+        if(updateValue===0){
+            Alert.alert("Alert",
+                "Do you want to remove this book?",
+                [{ text: "No", style: "cancel" },{ text: "Yes", onPress: () =>{
+                    removeItemFromCart();
+                } }]
+            );
             return;
         }
         setquantity(updateValue)
+        dispatch(decreaseItem(item))
     }
     return (
         <View style={styles.container}>

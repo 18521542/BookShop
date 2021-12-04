@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Image } from 'react-native';
 import { StyleSheet, Text, View } from 'react-native'
 import { useSelector } from 'react-redux'
@@ -6,29 +6,26 @@ import { Icon } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native';
 import QuantitySetBtn from './QuantitySetBtn';
 import { Divider } from 'react-native-elements';
+import { useState } from 'react';
 
 const CartItem = (props) => {
-    // const {price, name, quantity, imgLink} = props;
-    const {
-        price = "10000000", 
-        name,  
-        // imgLink
-    } = props;
+    const { item  } = props;
+    const {image_url, name, price, quantity} = item;
     
-    const imgLink = "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
     return (
         <View style={styles.container}>
             <Image
                 style={styles.itemImage}
                 source={{
-                    uri:imgLink,
+                    uri:image_url,
                 }}
             />
-            <Divider/>
             <View style={styles.contentContainer}>
-                <Text style={styles.title}>{`${props.name}`}</Text>
+                <Text style={styles.title}>{`${name}`}</Text>
                 <Text style={styles.price}>{`Giá bán : ${handlePrice(price)}đ`}</Text>
-                <View style={styles.qttContainer}><QuantitySetBtn style={styles.qttSet}/></View>
+                <View style={styles.qttContainer}>
+                    <QuantitySetBtn style={styles.qttSet} item={item}/>
+                </View>
             </View>
             
         </View>
