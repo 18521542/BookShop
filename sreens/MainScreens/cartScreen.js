@@ -13,7 +13,7 @@ const cartScreen = () => {
     const cart = useSelector(state => state.cart);
     
     const renderMyItem = (items) => {
-        console.log("render")
+        
         const eachItem = items.item;
         return(
             <CartItem

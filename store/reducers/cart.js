@@ -30,12 +30,11 @@ const cartReducer = (state = initialState, action) => {
             let existingItem = state.bookItems.findIndex(item => item === action.item);
             if(existingItem>=0){
                 const index = state.bookItems.findIndex(book => book.id === action.item.id)
-                const newBookItems = state.bookItems.splice(index,1)
+                state.bookItems.splice(index,1);
                 const newToTalMoney = state.totalMoney - action.item.price;
                 const newToTal = state.total - 1;
                 return{
                     ...state,
-                    bookItems: newBookItems,
                     totalMoney: newToTalMoney,
                     total: newToTal
                 }
