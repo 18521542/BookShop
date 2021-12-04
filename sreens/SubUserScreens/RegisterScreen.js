@@ -6,6 +6,7 @@ import MyButton from '../../components/MyButton'
 import { useState, useCallback } from 'react'
 import { useDispatch } from 'react-redux'
 import { register } from '../../store/actions/authentication'
+import MyInput from '../../components/MyInput'
 const RegisterScreen = (props) => {
 
     const [Username, setUsername] = useState("")
@@ -33,11 +34,36 @@ const RegisterScreen = (props) => {
 
     return (
         <ScrollView style={styles.container}>
+            
             <Text>Username</Text>
-            <Input  onChangeText={setUsername}/>
+            <MyInput
+                InputContainerStyle={{
+                    margin:10,
+                }}
+                placeholder="Enter an email"
+                checkIsNotValid={()=>{
+                    if(Username.trim().length === 0)
+                        return true;
+                    return false
+                }}
+                validateContent="Please enter a valid"
+                onChangeText={setUsername}
+            />
 
             <Text>Password</Text>
-            <Input onChangeText={setPassword}/>
+            <MyInput
+                InputContainerStyle={{
+                    margin:10,
+                }}
+                placeholder="Enter a password"
+                checkIsNotValid={()=>{
+                    if(Username.trim().length === 0)
+                        return true;
+                    return false
+                }}
+                validateContent="Please enter a valid password"
+                onChangeText={setPassword}
+            />
 
             <Text>Image Link</Text>
             <Input onChangeText={setImglink}/>
