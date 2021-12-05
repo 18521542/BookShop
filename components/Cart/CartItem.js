@@ -1,19 +1,26 @@
 import React, { useEffect } from 'react'
 import { Image } from 'react-native';
 import { StyleSheet, Text, View } from 'react-native'
-import { useSelector } from 'react-redux'
-import { Icon } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native';
 import QuantitySetBtn from './QuantitySetBtn';
-import { Divider } from 'react-native-elements';
-import { useState } from 'react';
+import { constant } from '../../constant';
 
 const CartItem = (props) => {
-    const { item  } = props;
+    const { item } = props;
     const {image_url, name, price, quantity} = item;
-    
     return (
-        <View style={styles.container}>
+        <TouchableOpacity 
+            style={styles.container}
+            onPress = {() => {
+                props.nav.navigate(constant.homeScreenNav,{
+                    screen: `${constant.bookDetailScreenName}`,
+                    params: {
+                        name: name,
+                        selectedBook: item,
+                    }
+                })
+            }}
+        >
             <Image
                 style={styles.itemImage}
                 source={{
@@ -21,14 +28,14 @@ const CartItem = (props) => {
                 }}
             />
             <View style={styles.contentContainer}>
-                <Text style={styles.title}>{`${name}`}</Text>
-                <Text style={styles.price}>{`Giá bán : ${handlePrice(price)}đ`}</Text>
-                <View style={styles.qttContainer}>
-                    <QuantitySetBtn style={styles.qttSet} item={item}/>
+                <View style={{flex:1}}>
+                    <Text style={styles.title}>{`${name}`}</Text>
+                    <Text style={styles.price}>{`Giá bán : ${handlePrice(price)}đ`}</Text>
                 </View>
+                <QuantitySetBtn style={styles.qttSet} item={item}/>
             </View>
             
-        </View>
+        </TouchableOpacity>
     )
 }
 
@@ -89,7 +96,7 @@ const styles = StyleSheet.create({
         borderTopRightRadius:30,
         borderBottomRightRadius:30,
         padding:5,
-        paddingTop:10
+        paddingTop:10,
     },
     price:{
         marginTop: 5,
@@ -97,11 +104,4 @@ const styles = StyleSheet.create({
         fontWeight:"500",
         color:"green"
     },
-    qttSet:{
-        marginBottom:5,
-    },
-    qttContainer:{
-        borderBottomRightRadius:30,
-        marginTop:10
-    }
 })

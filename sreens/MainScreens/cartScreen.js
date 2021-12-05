@@ -7,19 +7,19 @@ import CartItem from '../../components/Cart/CartItem';
 import Footer from '../../components/Cart/Footer';
 import { color } from '../../constant';
 
-const cartScreen = () => {
+const cartScreen = (props) => {
     const {bookItems, total} = useSelector(state => state.cart);
 
     const cart = useSelector(state => state.cart);
-    
+
     const renderMyItem = (items) => {
-        
         const eachItem = items.item;
         return(
             <CartItem
                 item={eachItem} 
                 name={eachItem.name}
                 description={eachItem.description}
+                nav={props.navigation}
             />
         )
     }

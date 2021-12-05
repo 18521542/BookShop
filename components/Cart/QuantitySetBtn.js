@@ -64,7 +64,6 @@ const styles = StyleSheet.create({
         backgroundColor:"orange",
         flexDirection:"row",
         justifyContent:"space-between",
-        // marginTop:25,
     },
     btn:{
         alignSelf:"center",

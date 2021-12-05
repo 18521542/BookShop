@@ -11,12 +11,9 @@ import { handlePrice } from '../../components/Cart/CartItem';
 import { Divider } from 'react-native-elements';
 import { FlatList } from 'react-native-gesture-handler';
 const bookDetailScreen = (props) => {
-    const {description, name, selectedBook} = props.route.params
+    const { selectedBook } = props.route.params
 
-    const list_author = selectedBook.author;
-    const list_category = selectedBook.category;
-    
-    const imgLink = selectedBook.image_url;
+    const {description, name, author, category, image_url} = selectedBook
     //action
     const dispatch = useDispatch();
     const addToCartButtonHandler = useCallback(() => {
@@ -26,7 +23,7 @@ const bookDetailScreen = (props) => {
     return (
         <View style={styles.container}>
             <ScrollView style={styles.infoContainer}>
-                <Image  style={styles.img} source={{uri: imgLink}}/>
+                <Image  style={styles.img} source={{uri: image_url}}/>
                 <View style={styles.titleContainer}>   
                     <Text style={styles.bookTitle}>{name}</Text>
                     <Text style={styles.price}>{`Giá bán: ${handlePrice(selectedBook.price)} đ`}</Text>
@@ -35,7 +32,7 @@ const bookDetailScreen = (props) => {
                     <Text style={styles.title}>Thể loại</Text>
                     <FlatList
                         horizontal
-                        data={list_category.map(element => ({id: element.id, name: element.name}))}
+                        data={category.map(element => ({id: element.id, name: element.name}))}
                         renderItem={({item}) => 
                             <View style={styles.label}>
                                 <Text>{item.name}</Text>
@@ -47,7 +44,7 @@ const bookDetailScreen = (props) => {
                     <Text style={styles.title}>Tác giả</Text>
                     <FlatList
                         horizontal
-                        data={list_author.map(element => ({id: element.id, name: element.name}))}
+                        data={author.map(element => ({id: element.id, name: element.name}))}
                         renderItem={({item}) => 
                             <View style={styles.label}>
                                 <Text style={{margin:3}}>{item.name}</Text>
