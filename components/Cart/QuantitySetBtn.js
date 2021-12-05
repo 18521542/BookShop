@@ -37,6 +37,8 @@ const QuantitySetBtn = (props) => {
         setquantity(updateValue)
         dispatch(decreaseItem(item))
     }
+
+    useEffect(()=>{item.quantity=quantity},[quantity])
     return (
         <View style={styles.container}>
             <TouchableOpacity 

@@ -7,6 +7,7 @@ import { Button } from 'react-native-elements/dist/buttons/Button'
 const MyButton = (props) => {
     return (
         <Button
+            {...props}
             title={props.title}
             buttonStyle={customStyle(props)}
             onPress={props.onClick}
@@ -19,7 +20,7 @@ export default MyButton
 const customStyle = (MyProps) => {
     const {backgrColor, textColor, width, height} = MyProps;
     return {
-        backgroundColor: backgrColor,
+        backgroundColor: backgrColor || "blue",
         borderRadius:30,
         width: width || 260,
         height:height || 50,

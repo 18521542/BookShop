@@ -8,11 +8,13 @@ import { Provider } from 'react-redux';
 import bookReducer from './store/reducers/book';
 import ReduxThunk from "redux-thunk"
 import authReducer from './store/reducers/authentication';
+import { paymentReducer } from './store/reducers/payment';
 
 const rootReducer = combineReducers({
   cart: cartReducer, 
   book: bookReducer,
   auth: authReducer,
+  pay: paymentReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
