@@ -49,7 +49,12 @@ export const login = (payload) => {
                 if(result.access_jwt_token){
                     dispatch({
                         type: auth_action.login,
-                        userInfo: payload,
+                        userInfo: {
+                            username: payload.username, 
+                            password: payload.password, 
+                            access_jwt_token: result.access_jwt_token, 
+                            refresh_jwt_token: result.refresh_jwt_token 
+                        },
                         isAuthenticated: true
                     })
                 }
@@ -57,10 +62,6 @@ export const login = (payload) => {
                     throw new Error(result.message)
                 }
             }
-        // }
-        // catch(err){
-            
-        // }
     }
 }
 

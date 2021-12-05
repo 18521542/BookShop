@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { Button } from 'react-native-elements/dist/buttons/Button';
 import { FlatList } from 'react-native-gesture-handler';
 import { useSelector } from 'react-redux'
 import CartItem from '../../components/Cart/CartItem';
@@ -50,3 +49,15 @@ const styles = StyleSheet.create({
         color:color.primaryColor,
     }
 })
+
+export const cartScreenNavOption = (nav) => {
+    return {
+        // headerTitle: () => (
+        //     <Text>Logo</Text>
+        // ),
+        headerShown: true,
+        // headerStyle:{
+        //     backgroundColor: color.primaryColor,
+        // },
+    }
+}

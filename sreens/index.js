@@ -35,6 +35,7 @@ function RoutingScreen(){
                 <MainStack.Screen
                     name={`${constant.cartScreenNav}`}
                     component={CartScreenNavigator}
+                    options={{ headerShown: false }}
                 />
             </MainStack.Navigator>
         </NavigationContainer>

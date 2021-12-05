@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { constant } from '../../constant';
 import PaymentScreen from '../SubCartScreens/PaymentScreen';
 // import { CartScreenNavOption } from '../MainScreens/CartScreen';
+import { cartScreenNavOption } from '../MainScreens/cartScreen';
 
 const CartScreenStackNavigator = createStackNavigator();
 
@@ -13,7 +14,7 @@ export const CartScreenNavigator = () => {
             <CartScreenStackNavigator.Screen
                 name={`${constant.paymentScreenName}`} 
                 component={PaymentScreen}
-                // options={CartScreenNavOption}
+                options={cartScreenNavOption}
             />
         </CartScreenStackNavigator.Navigator>
     )
