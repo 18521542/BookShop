@@ -9,6 +9,7 @@ import { MainScreenNavigator } from "./navigators/mainNavigator";
 import { HomeScreenNavigator } from "./navigators/homeScreenNavigator";
 import { constant } from "../constant";
 import { UserScreenNavigator } from "./navigators/userScreenNavigator";
+import { CartScreenNavigator } from "./navigators/cartScreenNavigator";
 
 const MainStack = createStackNavigator();
 
@@ -30,6 +31,10 @@ function RoutingScreen(){
                 <MainStack.Screen
                     name={`${constant.userScreenNav}`}
                     component={UserScreenNavigator}
+                />
+                <MainStack.Screen
+                    name={`${constant.cartScreenNav}`}
+                    component={CartScreenNavigator}
                 />
             </MainStack.Navigator>
         </NavigationContainer>

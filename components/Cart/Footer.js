@@ -3,11 +3,18 @@ import { StyleSheet, Text, View } from 'react-native'
 import MyButton from '../MyButton'
 import { handlePrice } from './CartItem'
 import { useSelector } from 'react-redux'
+import { constant } from '../../constant'
 
 const Footer = (props) => {
     const cart = useSelector(state => state.cart)
     const {totalMoney} = cart;
     const totalPrice = totalMoney || 0;
+
+    const goToPaymentScreen = () => {
+        props.nav.navigate(constant.cartScreenNav, {
+            screen: constant.paymentScreenName
+        })
+    }
 
     // console.log(cart)
     return (
@@ -22,6 +29,7 @@ const Footer = (props) => {
                     height={40}
                     title="Thanh toán"
                     backgrColor="#0d2d61"
+                    onClick={goToPaymentScreen}
                 />
             </View>
         </View>

@@ -30,7 +30,9 @@ const cartScreen = (props) => {
                 renderItem={renderMyItem}
                 data={bookItems}
             />
-            <Footer/>
+            <Footer
+                nav={props.navigation}
+            />
         </View>
     )
 }

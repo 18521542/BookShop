@@ -5,6 +5,7 @@ export const constant = {
     bottomTabNav:" ",
     homeScreenNav:"test2",
     userScreenNav:"User",
+    cartScreenNav:"ScrNv",
 
     //main screen
     homeScreenName: "home",
@@ -18,6 +19,9 @@ export const constant = {
     //sub_UserScreens: 
     registerScreenName:"R",
     userDetailScreenName:"D",
+
+    //sub_CartScreen
+    paymentScreenName:"P",
 }
 
 export const color = {

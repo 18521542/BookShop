@@ -2,7 +2,7 @@ import React from 'react'
 import { TouchableOpacity } from 'react-native';
 import { StyleSheet,Image, Text, View } from 'react-native'
 import { constant } from '../constant';
-
+import { handlePrice } from './Cart/CartItem';
 const ProductCard = (props) => {
     const { name, price, rating, image_url, nav, selectedBook } = props;
     return (
@@ -27,7 +27,7 @@ const ProductCard = (props) => {
                 />
                 <Text style={styles.title}>{`${name}`}</Text>
             </View>
-            <Text style={styles.price}>{`${price} đ`}</Text>
+            <Text style={styles.price}>{`${handlePrice(price)} đ`}</Text>
         </TouchableOpacity>
     )
 }
