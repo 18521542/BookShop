@@ -8,7 +8,6 @@ const initialState = {
 export const paymentReducer = (state = initialState, action) => {
     switch(action.type){
         case create_payment:
-            // console.log(action.payload)
             return {...state}
         default:
             return {...state}

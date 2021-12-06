@@ -20,7 +20,6 @@ export const register = (payload) => {
                 password: payload.Password
             })
         })
-        // console.log(JSON.stringify(res.body))
         dispatch({
             type: auth_action.register,
             userInfo: payload,

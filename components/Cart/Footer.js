@@ -15,8 +15,6 @@ const Footer = (props) => {
             screen: constant.paymentScreenName
         })
     }
-
-    // console.log(cart)
     return (
         <View style={styles.container}>
             <View style={styles.content}>

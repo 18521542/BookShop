@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { useSelector } from 'react-redux'
 import MyButton from '../MyButton';
@@ -7,13 +7,17 @@ import { useCallback } from 'react';
 import { createPayment } from '../../store/actions/payment';
 import ProductCardForPayment from './ProductCardForPayment';
 import { ScrollView } from 'react-native';
-import { Divider } from 'react-native-elements/dist/divider/Divider';
-import { Button } from 'react-native';
 import { handlePrice } from '../Cart/CartItem';
 import UserInfoCard from './UserInfoCard';
+import { Alert } from 'react-native';
+import { constant } from '../../constant';
 const PaymentDetailScreen = (props) => {
     const globalState = useSelector(state => state);
     const { auth, cart } = globalState;
+
+    const [IsLoading, setIsLoading] = useState(false)
+    const [Err, setErr] = useState(null)
+    const [IsConfirmed, setIsConfirmed] = useState(false);
 
     const titleProduct = "Thông tin sản phẩm";
     const titleUser = "Thông tin người mua";
@@ -42,11 +46,43 @@ const PaymentDetailScreen = (props) => {
 
     const dispatch = useDispatch();
     const createPaymentHandler = useCallback(
-        () => {
-            dispatch(createPayment(paymentInfo))
+        async () => {
+            try{
+                setIsLoading(true)
+                await dispatch(createPayment(paymentInfo))
+                setIsLoading(false)
+                setIsConfirmed(true)
+            }catch(err){
+                setErr(err)
+                setIsLoading(false)
+            }
+            
         },
         [createPaymentHandler, dispatch],
     )
+
+    useEffect(() => {
+        if(Err){
+            Alert.alert(Err.toString())
+        }
+    }, [Err])
+
+    useEffect(() => {
+        if(IsConfirmed){
+            Alert.alert("Thông báo", "Bạn đã đặt hàng thành công",[{
+                text: "Mua tiếp!",
+                onPress: () => {
+                    goToHomepage();
+                }
+            }])
+        }
+    }, [IsConfirmed])
+
+    const goToHomepage = ()=>{
+        props.nav.navigate(constant.bottomTabNav,{
+            screen: constant.homeScreenName,
+        })
+    }
     return (
         <View style={styles.container}>
             <ScrollView style={styles.contentContainer}>
@@ -79,10 +115,11 @@ const PaymentDetailScreen = (props) => {
             </ScrollView>
 
             <View style={styles.Footer}>
+                {IsLoading? <Text> loading </Text>:
                 <MyButton
                     title={"confirm"}
                     onClick={createPaymentHandler}
-                />
+                />}
             </View>
         </View>
     )

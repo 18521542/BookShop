@@ -24,7 +24,7 @@ export const createPayment = (paymentInfo) => {
             const result = await res.json()
         }
         else{
-            console.log("here")
+            throw new Error("Bad Request")
         }
         dispatch({
             type: create_payment,
