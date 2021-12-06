@@ -22,7 +22,7 @@ const ListContainer = (props) => {
     const renderListProduct = data.map(item => renderProduct(item));
    
     return (
-        <View>
+        <View style={styles.mainContainer}>
             <Text>Hello</Text>
             <View style={styles.container}>
                 {renderListProduct}
@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         flex:1,
         flexWrap:"wrap",
-        backgroundColor:"white"
+        backgroundColor:"white",
+        justifyContent:"center"
     },
 })

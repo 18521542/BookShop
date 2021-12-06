@@ -21,7 +21,7 @@ export const constant = {
     userDetailScreenName:"D",
 
     //sub_CartScreen
-    paymentScreenName:"P",
+    paymentScreenName:"Xác nhận đơn hàng",
 }
 
 export const color = {

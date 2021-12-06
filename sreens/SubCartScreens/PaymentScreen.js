@@ -7,7 +7,7 @@ import PaymentErrorScreen from '../../components/Payment/PaymentErrorScreen';
 const PaymentScreen = (props) => {
     const state = useSelector(state => state);
     const {auth, cart} = state;
-    const isNotReadyToPay = (auth.isSignedIn || cart.total===0)
+    const isNotReadyToPay = (!auth.isSignedIn || cart.total===0)
     // console.log(state.auth)
     return (
         <View>
