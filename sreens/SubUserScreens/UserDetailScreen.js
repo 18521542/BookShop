@@ -21,6 +21,7 @@ const UserDetailScreen = (props) => {
             <UserDetail 
                 user={user}
                 logoutHandler={logoutHandler}
+                nav={props.nav}
             />
         </View>
     )

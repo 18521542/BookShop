@@ -17,7 +17,7 @@ const UserDetail = (props) => {
                 <Text style={styles.labelName}>{`Welcome ${user.username}`}</Text>
             </View>
             <View style={styles.body}>
-                <UserBodyPanel/>
+                <UserBodyPanel nav={props.nav}/>
             </View>
             <View style={styles.Footer}>
                 <MyButton

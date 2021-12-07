@@ -1,5 +1,9 @@
 import Constants from "expo-constants";
 
+import { Dimensions } from 'react-native';
+export const windowWidth = Dimensions.get('window').width;
+export const windowHeight = Dimensions.get('window').height;
+
 export const constant = {
     //navigator
     bottomTabNav:" ",
@@ -19,6 +23,10 @@ export const constant = {
     //sub_UserScreens: 
     registerScreenName:"R",
     userDetailScreenName:"D",
+    userInfoScreenName:"User Info",
+    userBillHistoryScreenName:"User Bill",
+    userShopScreenName:"User shop",
+    userPaymentScreenName:"User payment",
 
     //sub_CartScreen
     paymentScreenName:"Xác nhận đơn hàng",
