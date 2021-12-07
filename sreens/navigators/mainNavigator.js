@@ -6,9 +6,8 @@ import { color, constant } from "../../constant";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import React from 'react';
 import cartScreen from "../MainScreens/cartScreen";
-import Header from "../../components/Header"
-import Logo from "../../components/Logo";
-import CartButton from "../../components/CartButton";
+import filterScreen from "../MainScreens/filterScreen";
+import { Icon } from 'react-native-elements';
 
 const tab = createBottomTabNavigator();
 
@@ -29,12 +28,16 @@ export const MainScreenNavigator = () => {
                     }   else if (rn === constant.cartScreenName) {
                         // iconName = 'shopping-cart';
                         iconName = focused ? 'cart' : 'cart-outline';
+                    }   else if (rn === constant.filterScreenName) {
+                        // iconName = 'shopping-cart';
+                        iconName = focused ? 'filter' : 'filter-outline';
+                        // return <Icon name={iconName} type="ionicon"/>
                     }
                     return <Ionicons name={iconName} size={size} color={color}/>
                 },
                 tabBarActiveBackgroundColor:color.secondaryColor,
                 tabBarInactiveBackgroundColor:color.primaryColor,
-                tabBarActiveTintColor: color.primaryColor,
+                tabBarActiveTintColor: "white",
                 tabBarInactiveTintColor: color.secondaryColor,
                 tabBarLabelStyle: {
                     fontWeight: "100",
@@ -59,6 +62,10 @@ export const MainScreenNavigator = () => {
                 name={constant.userScreenName} 
                 component={userScreen}
                 options={userScreenNavOption}
+            />
+            <tab.Screen 
+                name={`${constant.filterScreenName}`} 
+                component={filterScreen}
             />
         </tab.Navigator>
     )

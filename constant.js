@@ -10,12 +10,14 @@ export const constant = {
     homeScreenNav:"test2",
     userScreenNav:"User",
     cartScreenNav:"ScrNv",
+    filterScreenNav:"filterNav",
 
     //main screen
     homeScreenName: "home",
     settingScreenName:"setting",
     userScreenName:"user",
     cartScreenName:"cart",
+    filterScreenName:"filter",
 
     //sub_HomeScreens: 
     bookDetailScreenName:"detail",
@@ -30,6 +32,10 @@ export const constant = {
 
     //sub_CartScreen
     paymentScreenName:"Xác nhận đơn hàng",
+
+    //sub_FilterScreen
+    bookByAuthorScreenName:"BookAuthor",
+    bookByCategoryScreenName:"BookScreen",
 }
 
 export const color = {
