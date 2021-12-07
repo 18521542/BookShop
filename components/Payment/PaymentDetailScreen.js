@@ -11,6 +11,7 @@ import { handlePrice } from '../Cart/CartItem';
 import UserInfoCard from './UserInfoCard';
 import { Alert } from 'react-native';
 import { constant } from '../../constant';
+import { ActivityIndicator } from 'react-native';
 const PaymentDetailScreen = (props) => {
     const globalState = useSelector(state => state);
     const { auth, cart } = globalState;
@@ -115,7 +116,7 @@ const PaymentDetailScreen = (props) => {
             </ScrollView>
 
             <View style={styles.Footer}>
-                {IsLoading? <Text> loading </Text>:
+                {IsLoading? <ActivityIndicator/>:
                 <MyButton
                     title={"confirm"}
                     onClick={createPaymentHandler}
