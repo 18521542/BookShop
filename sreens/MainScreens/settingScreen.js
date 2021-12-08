@@ -1,8 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { Button } from 'react-native-elements/dist/buttons/Button'
 import MyButton from '../../components/MyButton'
-import { fetchAuthors } from '../../store/reducers/author'
 
 const settingScreen = (navigation) => {
     return (
@@ -16,7 +14,6 @@ const settingScreen = (navigation) => {
                 width={100}
                 height={50}
                 backgrColor={"red"}
-                onClick={fetchAuthors}
             />
         </View>
     )
