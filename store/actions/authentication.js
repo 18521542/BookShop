@@ -23,13 +23,17 @@ export const register = (payload) => {
             })
 
             if(res.ok){
+                const rs = await res.json();
+                if(rs.message === "The account is existed, please check again!"){
+                    throw Error("Đã tồn tại tài khoản với username này")
+                }
                 dispatch({
                     type: auth_action.register,
                     userInfo: payload,
                 })
             }
         } catch (error) {
-            throw new Error(error)
+            throw new Error("Đã có lỗi xảy ra")
         }
     }
 }

@@ -54,13 +54,11 @@ const RegisterScreen = (props) => {
 
     useEffect(() => {
         if(Err)
-            Alert.alert("Đã có lỗi xảy ra");
+            Alert.alert(Err.toString());
     },[Err])
 
     const goToLoginScreen = () => {
-        props.navigation.navigate(constant.userScreenNav, {
-            screen: constant.userScreenName,
-        })
+        props.navigation.goBack()
     }
     useEffect(() => {
         if(IsRegisterSuccess)
@@ -120,7 +118,8 @@ export default RegisterScreen
 const styles = StyleSheet.create({
     container:{
         backgroundColor:"white",
-        padding:20,
+        padding:15,
+        paddingTop:30,
         alignSelf:"center",
         marginTop:30,
         shadowColor: "#000",
