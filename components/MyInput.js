@@ -1,8 +1,9 @@
 import { StyleSheet, Text, View, TextInput } from 'react-native'
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 const MyInput = (props) => {
-    const isNotValid = props.checkIsNotValid();
+    const { isNotValid } = props; 
+
     return (
         <View style={props.InputContainerStyle}>
             <TextInput

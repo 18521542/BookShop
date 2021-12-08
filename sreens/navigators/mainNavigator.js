@@ -51,6 +51,10 @@ export const MainScreenNavigator = () => {
                 options={homeScreenNavOption}
             />
             <tab.Screen 
+                name={`${constant.filterScreenName}`} 
+                component={filterScreen}
+            />
+            <tab.Screen 
                 name={constant.cartScreenName} 
                 component={cartScreen}
             />
@@ -63,10 +67,7 @@ export const MainScreenNavigator = () => {
                 component={userScreen}
                 options={userScreenNavOption}
             />
-            <tab.Screen 
-                name={`${constant.filterScreenName}`} 
-                component={filterScreen}
-            />
+            
         </tab.Navigator>
     )
 }

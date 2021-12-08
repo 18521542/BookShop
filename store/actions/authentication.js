@@ -10,21 +10,27 @@ export const auth_action = {
 export const register = (payload) => {
     return async dispatch => {
         const register_api = API_ENDPOINT + "/api/account/create"   
-        const res = await fetch(register_api, {
-            method: "POST",
-            headers: {
-                'Content-Type':'application/json'
-            },
-            body: JSON.stringify({
-                username: payload.Username,
-                password: payload.Password
+        try {
+            const res = await fetch(register_api, {
+                method: "POST",
+                headers: {
+                    'Content-Type':'application/json'
+                },
+                body: JSON.stringify({
+                    username: payload.Username,
+                    password: payload.Password
+                })
             })
-        })
-        dispatch({
-            type: auth_action.register,
-            userInfo: payload,
-        })
 
+            if(res.ok){
+                dispatch({
+                    type: auth_action.register,
+                    userInfo: payload,
+                })
+            }
+        } catch (error) {
+            throw new Error(error)
+        }
     }
 }
 
