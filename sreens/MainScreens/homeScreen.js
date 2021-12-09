@@ -9,14 +9,16 @@ import Header from '../../components/Header'
 import ListContainer from '../../components/ListContainer'
 import { fetch_books } from '../../store/actions/book'
 import { useCallback, useEffect } from 'react'
-import { Button } from 'react-native-elements'
-
+import { FetchAuthors } from '../../store/actions/author'
+import { FetchCategories } from '../../store/actions/category'
 const homeScreen = ({navigation}) => {
     //get state
     const globalState = useSelector(state => state)
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetch_books())
+        dispatch(FetchAuthors());
+        dispatch(FetchCategories());
     }, [dispatch])
 
     return (

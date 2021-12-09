@@ -12,6 +12,7 @@ import { Divider } from 'react-native-elements';
 import { FlatList } from 'react-native-gesture-handler';
 import { TouchableOpacity } from 'react-native';
 import { FetchAuthors, FilterBookByAuthor } from '../../store/actions/author';
+import { FetchCategories, FilterBookByCATEGORY } from '../../store/actions/category';
 const bookDetailScreen = (props) => {
     const { selectedBook } = props.route.params
 
@@ -22,20 +23,7 @@ const bookDetailScreen = (props) => {
         dispatch(addItem(selectedBook));
     }, [dispatch, selectedBook])
 
-
-    const GoToFilterAuthor = useCallback( async (ScreenName, item) =>{
-        await dispatch(FilterBookByAuthor(item));
-
-        props.navigation.navigate(constant.bottomTabNav, {
-            screen: constant.filterScreenName,
-            params:{
-                screen: ScreenName,
-            }
-        })
-        
-    },[dispatch])
-
-    const GoToFilterCategory = (ScreenName, item) => {
+    const GoToFilterScreen = (ScreenName) => {
         props.navigation.navigate(constant.bottomTabNav, {
             screen: constant.filterScreenName,
             params:{
@@ -43,6 +31,18 @@ const bookDetailScreen = (props) => {
             }
         })
     }
+    const GoToFilterAuthorWith = useCallback( async (item) =>{
+        await dispatch(FetchAuthors())
+        await dispatch(FilterBookByAuthor(item));
+        GoToFilterScreen(constant.bookByAuthorScreenName)
+
+    },[dispatch])
+
+    const GoToFilterCategoryWith = useCallback(async (item) => {
+        await dispatch(FetchCategories())
+        await dispatch(FilterBookByCATEGORY(item))
+        GoToFilterScreen(constant.bookByCategoryScreenName)
+    },[dispatch])
 
     
 
@@ -62,7 +62,7 @@ const bookDetailScreen = (props) => {
                         renderItem={({item}) => 
                             <TouchableOpacity 
                                 style={styles.label}
-                                onPress={() => GoToFilterCategory(constant.bookByCategoryScreenName, item)}
+                                onPress={() => GoToFilterCategoryWith(item)}
                             >
                                 <Text>{item.name}</Text>
                             </TouchableOpacity> 
@@ -77,7 +77,7 @@ const bookDetailScreen = (props) => {
                         renderItem={({item}) => 
                             <TouchableOpacity 
                                 style={styles.label}
-                                onPress={() => GoToFilterAuthor(constant.bookByAuthorScreenName, item)}
+                                onPress={() => GoToFilterAuthorWith(item)}
                             >
                                 <Text style={{margin:3}}>{item.name}</Text>
                             </TouchableOpacity> 

@@ -4,16 +4,31 @@ import { StyleSheet, Text, View } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import { constant } from '../../constant'
 import { FetchAuthors, FilterBookByAuthor } from '../../store/actions/author'
+import { FetchCategories, FilterBookByCATEGORY } from '../../store/actions/category'
 import { FilterScreenNavigator } from '../navigators/filterScreenNavigator'
 
 const filterScreen = (props) => {
-    const state = useSelector(state => state.author)
-    console.log(state)
+    const state = useSelector(state => state)
+
+    const selectedAuthor = state.author.authors[0];
+    const selectedCategory = state.category.categories[0];
+
+    const dispatch = useDispatch()
+    const LoadFirstDataRow = useEffect(
+        async () => {
+            console.log("here")
+            dispatch(FilterBookByCATEGORY(selectedCategory));
+            dispatch(FilterBookByAuthor(selectedAuthor));
+        },
+        [dispatch, selectedAuthor, selectedCategory],
+    )
     return (
         <FilterScreenNavigator
             style={styles.header}/>
     )
 }
+
+
 
 export default filterScreen
 
@@ -23,9 +38,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export const Body = (props) => {
-    return (<View>
-        <Text>This is the body of filter Screen</Text>
 
-    </View>)
-}

@@ -1,13 +1,19 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import { useSelector } from 'react-redux'
 import { constant } from '../../constant'
-import { Body } from '../MainScreens/filterScreen'
+import Body from '../../components/Filter/Body'
 
 const BookByAuthorScreen = (props) => {
+    const state = useSelector(state => state.author)
+    const { authors, selectedAuthor, BooksByAuthor } = state;
     return (
         <View>
             <Body
-                type={constant.bookByAuthorScreenName}
+                filterColumn_Data={authors}
+                filtered_Data={BooksByAuthor}
+                selectedItem={selectedAuthor}
+                typeScreen={constant.bookByAuthorScreenName}
                 {...props}
             />
         </View>
