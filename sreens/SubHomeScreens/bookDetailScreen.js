@@ -23,16 +23,28 @@ const bookDetailScreen = (props) => {
     }, [dispatch, selectedBook])
 
 
-    const GoToFilter = useCallback( async (ScreenName, item) =>{
+    const GoToFilterAuthor = useCallback( async (ScreenName, item) =>{
+        await dispatch(FilterBookByAuthor(item));
+
         props.navigation.navigate(constant.bottomTabNav, {
             screen: constant.filterScreenName,
             params:{
                 screen: ScreenName,
             }
         })
-        await dispatch(FetchAuthors())
-        dispatch(FilterBookByAuthor(item));
+        
     },[dispatch])
+
+    const GoToFilterCategory = (ScreenName, item) => {
+        props.navigation.navigate(constant.bottomTabNav, {
+            screen: constant.filterScreenName,
+            params:{
+                screen: ScreenName,
+            }
+        })
+    }
+
+    
 
     return (
         <View style={styles.container}>
@@ -50,7 +62,7 @@ const bookDetailScreen = (props) => {
                         renderItem={({item}) => 
                             <TouchableOpacity 
                                 style={styles.label}
-                                onPress={() => GoToFilter(constant.bookByCategoryScreenName, item)}
+                                onPress={() => GoToFilterCategory(constant.bookByCategoryScreenName, item)}
                             >
                                 <Text>{item.name}</Text>
                             </TouchableOpacity> 
@@ -65,7 +77,7 @@ const bookDetailScreen = (props) => {
                         renderItem={({item}) => 
                             <TouchableOpacity 
                                 style={styles.label}
-                                onPress={() => GoToFilter(constant.bookByAuthorScreenName, item.id)}
+                                onPress={() => GoToFilterAuthor(constant.bookByAuthorScreenName, item)}
                             >
                                 <Text style={{margin:3}}>{item.name}</Text>
                             </TouchableOpacity> 

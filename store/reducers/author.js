@@ -19,7 +19,7 @@ const authorReducer = (state = initalState, action) => {
             return {
                 ...state,
                 BooksByAuthor:action.data,
-                selectedAuthor: action.author,
+                selectedAuthor: action.selectedAuthor,
             }
         default:
             return { ...state }
