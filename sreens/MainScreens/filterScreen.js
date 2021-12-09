@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { Button } from 'react-native'
 import { StyleSheet, Text, View } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
@@ -8,17 +8,10 @@ import { FilterScreenNavigator } from '../navigators/filterScreenNavigator'
 
 const filterScreen = (props) => {
     const state = useSelector(state => state.author)
-    const dispatch = useDispatch();
-    const FilterAuthor = useCallback(
-        async () => {
-            // await dispatch(FetchAuthors());
-            dispatch(FilterBookByAuthor("19dcbc06-26b8-476c-a9b4-9aa9d470e744"));
-        },
-        [dispatch],
-    )
-
+    console.log(state)
     return (
-        <FilterScreenNavigator style={styles.header}/>
+        <FilterScreenNavigator
+            style={styles.header}/>
     )
 }
 
@@ -29,3 +22,10 @@ const styles = StyleSheet.create({
         marginTop:10,
     }
 })
+
+export const Body = (props) => {
+    return (<View>
+        <Text>This is the body of filter Screen</Text>
+
+    </View>)
+}

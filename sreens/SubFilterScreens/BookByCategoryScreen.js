@@ -1,10 +1,15 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import { constant } from '../../constant'
+import { Body } from '../MainScreens/filterScreen'
 
 const BookByCategoryScreen = (props) => {
     return (
         <View>
-            <Text>Book by category screen</Text>
+            <Body
+                type={constant.bookByCategoryScreenName}
+                {...props}
+            />
         </View>
     )
 }

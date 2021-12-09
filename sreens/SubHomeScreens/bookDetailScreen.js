@@ -10,6 +10,8 @@ import MyButton from '../../components/MyButton';
 import { handlePrice } from '../../components/Cart/CartItem';
 import { Divider } from 'react-native-elements';
 import { FlatList } from 'react-native-gesture-handler';
+import { TouchableOpacity } from 'react-native';
+import { FetchAuthors, FilterBookByAuthor } from '../../store/actions/author';
 const bookDetailScreen = (props) => {
     const { selectedBook } = props.route.params
 
@@ -19,6 +21,18 @@ const bookDetailScreen = (props) => {
     const addToCartButtonHandler = useCallback(() => {
         dispatch(addItem(selectedBook));
     }, [dispatch, selectedBook])
+
+
+    const GoToFilter = useCallback( async (ScreenName, item) =>{
+        props.navigation.navigate(constant.bottomTabNav, {
+            screen: constant.filterScreenName,
+            params:{
+                screen: ScreenName,
+            }
+        })
+        await dispatch(FetchAuthors())
+        dispatch(FilterBookByAuthor(item));
+    },[dispatch])
 
     return (
         <View style={styles.container}>
@@ -34,9 +48,12 @@ const bookDetailScreen = (props) => {
                         horizontal
                         data={category.map(element => ({id: element.id, name: element.name}))}
                         renderItem={({item}) => 
-                            <View style={styles.label}>
+                            <TouchableOpacity 
+                                style={styles.label}
+                                onPress={() => GoToFilter(constant.bookByCategoryScreenName, item)}
+                            >
                                 <Text>{item.name}</Text>
-                            </View> 
+                            </TouchableOpacity> 
                         }
                     />
                 </View>
@@ -46,9 +63,12 @@ const bookDetailScreen = (props) => {
                         horizontal
                         data={author.map(element => ({id: element.id, name: element.name}))}
                         renderItem={({item}) => 
-                            <View style={styles.label}>
+                            <TouchableOpacity 
+                                style={styles.label}
+                                onPress={() => GoToFilter(constant.bookByAuthorScreenName, item.id)}
+                            >
                                 <Text style={{margin:3}}>{item.name}</Text>
-                            </View> 
+                            </TouchableOpacity> 
                         }
                     />
                 </View>
@@ -157,9 +177,9 @@ const styles = StyleSheet.create({
     label:{
         flex:1,
         borderWidth:1,
-        padding:4,
+        padding:2,
         minWidth:150,
-        height:30,
+        minHeight:30,
         margin:3,
         alignItems:"center",
         justifyContent:"center",

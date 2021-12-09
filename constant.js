@@ -30,8 +30,8 @@ export const constant = {
     paymentScreenName:"Xác nhận đơn hàng",
 
     //sub_FilterScreen
-    bookByAuthorScreenName:"AUTHOR",
-    bookByCategoryScreenName:"CATEGORY",
+    bookByAuthorScreenName:"Tác giả",
+    bookByCategoryScreenName:"Thể loại",
 }
 
 export const color = {

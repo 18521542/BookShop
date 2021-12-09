@@ -19,10 +19,10 @@ export const FetchAuthors = () => {
     }
 }
 
-export const FilterBookByAuthor = (authorId) => {
+export const FilterBookByAuthor = (author) => {
     return async (dispatch) => {
         const filterBookByAuthorAPI = API_ENDPOINT + "/api/book/filterAuthor"
-
+        let author = author.id;
         let res = await fetch(`${filterBookByAuthorAPI}/${authorId}`)
         let data = [];
         if(res.ok){
@@ -32,6 +32,7 @@ export const FilterBookByAuthor = (authorId) => {
         dispatch({
             type: FILTER_BOOK_BY_AUTHOR,
             data: data,
+            selectedAuthor: author,
         })
     }
 }

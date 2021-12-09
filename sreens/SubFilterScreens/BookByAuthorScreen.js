@@ -1,10 +1,15 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import { constant } from '../../constant'
+import { Body } from '../MainScreens/filterScreen'
 
 const BookByAuthorScreen = (props) => {
     return (
         <View>
-            <Text>This is book by author</Text>
+            <Body
+                type={constant.bookByAuthorScreenName}
+                {...props}
+            />
         </View>
     )
 }
