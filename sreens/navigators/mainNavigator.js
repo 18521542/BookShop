@@ -8,6 +8,8 @@ import React from 'react';
 import cartScreen from "../MainScreens/cartScreen";
 import filterScreen from "../MainScreens/filterScreen";
 import { Icon } from 'react-native-elements';
+import { filterScreenHeaderOption } from "./filterScreenNavigator";
+import Logo from "../../components/Logo";
 
 const tab = createBottomTabNavigator();
 
@@ -53,22 +55,37 @@ export const MainScreenNavigator = () => {
             <tab.Screen 
                 name={`${constant.filterScreenName}`} 
                 component={filterScreen}
+                options={defaultHeaderOption}
             />
             <tab.Screen 
                 name={constant.cartScreenName} 
                 component={cartScreen}
+                options={defaultHeaderOption}
             />
             <tab.Screen 
                 name={constant.settingScreenName} 
                 component={settingScreen}
+                options={defaultHeaderOption}
             />
             <tab.Screen 
                 name={constant.userScreenName} 
                 component={userScreen}
                 options={userScreenNavOption}
+                // options={defaultHeaderOption}
             />
             
         </tab.Navigator>
     )
 }
+
+const defaultHeaderOption = (nav) => {
+    return {
+        headerTitle: () => (  
+            <Logo/>
+        ),
+        headerStyle:{
+            backgroundColor: color.primaryColor,
+        },
+    }
+  }
 

@@ -10,6 +10,7 @@ import { HomeScreenNavigator } from "./navigators/homeScreenNavigator";
 import { constant } from "../constant";
 import { UserScreenNavigator } from "./navigators/userScreenNavigator";
 import { CartScreenNavigator } from "./navigators/cartScreenNavigator";
+import { FilterScreenNavigator } from "./navigators/filterScreenNavigator";
 
 const MainStack = createStackNavigator();
 
@@ -36,6 +37,10 @@ function RoutingScreen(){
                     name={`${constant.cartScreenNav}`}
                     component={CartScreenNavigator}
                     options={{ headerShown: false }}
+                />
+                <MainStack.Screen
+                    name={`${constant.filterScreenNav}`}
+                    component={FilterScreenNavigator}
                 />
             </MainStack.Navigator>
         </NavigationContainer>

@@ -4,10 +4,10 @@ import { StyleSheet, Text, View } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import { constant } from '../../constant'
 import { FetchAuthors, FilterBookByAuthor } from '../../store/actions/author'
+import { FilterScreenNavigator } from '../navigators/filterScreenNavigator'
 
 const filterScreen = (props) => {
     const state = useSelector(state => state.author)
-
     const dispatch = useDispatch();
     const FilterAuthor = useCallback(
         async () => {
@@ -18,16 +18,14 @@ const filterScreen = (props) => {
     )
 
     return (
-        <View>
-            <Text>filter screen</Text>
-            <Button
-                title="Go to tab"
-                onPress={FilterAuthor}
-            />
-        </View>
+        <FilterScreenNavigator style={styles.header}/>
     )
 }
 
 export default filterScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    header:{
+        marginTop:10,
+    }
+})
