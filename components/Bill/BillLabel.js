@@ -1,7 +1,9 @@
 import moment from 'moment';
 import React from 'react'
+import { TouchableOpacity } from 'react-native';
 import { StyleSheet, Text, View } from 'react-native'
 import { Divider } from 'react-native-elements';
+import { constant } from '../../constant';
 import { handlePrice } from '../Cart/CartItem';
 
 const BillLabel = (props) => {
@@ -12,10 +14,17 @@ const BillLabel = (props) => {
     const monthAndyear = (moment(created_at).format("MM/YYYY")) || "09/2021"
 
     const IsDeliveried = !(status == "not delivery")
-    console.log(IsDeliveried)
     const formatStatus = (!IsDeliveried) ? "Chưa giao" : "Đã giao"
+
+    const GoToDetailBill = () => {
+        props.navigation.navigate(constant.userScreenNav, {
+            screen: constant.userBillDetailScreenName
+        })
+    }
     return (
-        <View style={styles.container}>
+        <TouchableOpacity
+            onPress={GoToDetailBill} 
+            style={styles.container}>
             {/* Time */}
             <View style={styles.timeContainer}>
                 <Text style={styles.day}>{day}</Text>
@@ -36,7 +45,7 @@ const BillLabel = (props) => {
                 </View>
                 
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 

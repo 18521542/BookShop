@@ -23,6 +23,7 @@ export const constant = {
     userDetailScreenName:"D",
     userInfoScreenName:"Thông tin cá nhân",
     userBillHistoryScreenName:"Lịch sử mua hàng",
+    userBillDetailScreenName:"Chi tiết hóa đơn",
     userShopScreenName:"User shop",
     userPaymentScreenName:"User payment",
 
