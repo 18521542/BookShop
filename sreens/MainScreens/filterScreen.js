@@ -10,13 +10,12 @@ import { FilterScreenNavigator } from '../navigators/filterScreenNavigator'
 const filterScreen = (props) => {
     const state = useSelector(state => state)
 
-    const selectedAuthor = state.author.authors[0];
-    const selectedCategory = state.category.categories[0];
+    const selectedAuthor = (state.author.selectedAuthor === undefined) ? state.author.authors[0] : state.author.selectedAuthor;
+    const selectedCategory = (state.category.selectedCategory === undefined) ? state.category.categories[0] : state.category.selectedCategory;
 
     const dispatch = useDispatch()
     const LoadFirstDataRow = useEffect(
         async () => {
-            console.log("here")
             dispatch(FilterBookByCATEGORY(selectedCategory));
             dispatch(FilterBookByAuthor(selectedAuthor));
         },
