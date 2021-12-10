@@ -11,6 +11,7 @@ import authReducer from './store/reducers/authentication';
 import { paymentReducer } from './store/reducers/payment';
 import authorReducer from "./store/reducers/author"
 import categoryReducer from './store/reducers/category';
+import { billReducer } from './store/reducers/bill';
 const rootReducer = combineReducers({
   cart: cartReducer, 
   book: bookReducer,
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   pay: paymentReducer,
   author: authorReducer,
   category: categoryReducer,
+  bill: billReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
