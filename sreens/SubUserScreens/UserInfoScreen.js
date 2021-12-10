@@ -10,8 +10,6 @@ const UserInfoScreen = (props) => {
 
     const {username, name, email, address, phone} = user;
 
-    console.log(user)
-
     const userDetail = {
         username: username || "Admin",
         name: name||"Nguyễn Văn",
