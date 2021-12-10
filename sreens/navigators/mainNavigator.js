@@ -78,7 +78,7 @@ export const MainScreenNavigator = () => {
     )
 }
 
-const defaultHeaderOption = (nav) => {
+export const defaultHeaderOption = (nav) => {
     return {
         headerTitle: () => (  
             <Logo/>

@@ -21,7 +21,7 @@ export const constant = {
     //sub_UserScreens: 
     registerScreenName:"R",
     userDetailScreenName:"D",
-    userInfoScreenName:"User Info",
+    userInfoScreenName:"Thông tin cá nhân",
     userBillHistoryScreenName:"User Bill",
     userShopScreenName:"User shop",
     userPaymentScreenName:"User payment",

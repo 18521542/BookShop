@@ -32,6 +32,7 @@ function RoutingScreen(){
                 <MainStack.Screen
                     name={`${constant.userScreenNav}`}
                     component={UserScreenNavigator}
+                    options={{ headerShown: false }}
                 />
                 <MainStack.Screen
                     name={`${constant.cartScreenNav}`}

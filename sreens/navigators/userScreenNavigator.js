@@ -9,6 +9,7 @@ import UserInfoScreen from '../SubUserScreens/UserInfoScreen';
 import UserShoppingHistoryScreen from '../SubUserScreens/UserShoppingHistoryScreen';
 import UserPaymentMethodScreen from '../SubUserScreens/UserPaymentMethodScreen';
 import UserShopScreen from '../SubUserScreens/UserShopScreen';
+import { defaultHeaderOption } from './mainNavigator';
 
 const UserScreenStackNavigator = createStackNavigator();
 
@@ -23,6 +24,7 @@ export const UserScreenNavigator = () => {
             <UserScreenStackNavigator.Screen
                 name={`${constant.userDetailScreenName}`} 
                 component={UserDetailScreen}
+                options={{headerShown: false }}
             />
             <UserScreenStackNavigator.Screen
                 name={`${constant.userInfoScreenName}`} 
