@@ -10,24 +10,38 @@ import { FilterBookByCATEGORY } from '../../store/actions/category'
 
 const FilterColumn = (props) => {
     const { typeScreen, data } = props;
+
+    const author = useSelector(state => state.author)
+    const category = useSelector(state => state.category)
+
+    const checkIsChosen = (id)=> {
+        if(typeScreen===constant.bookByAuthorScreenName){
+            if(id === author.selectedAuthor.id)
+                return true;
+            return false;
+        }
+        if(typeScreen===constant.bookByCategoryScreenName){
+            if(id === category.selectedCategory.id)
+                return true;
+            return false;
+        }
+    }
     const renderTile = (tile) => {
-    
-    let action = null;
-    if(typeScreen===constant.bookByCategoryScreenName)
-        action = () => FilterBookByCATEGORY(tile);
-    else
-        action = () => FilterBookByAuthor(tile);
-
-    const dispatch = useDispatch()
-    const FilterAction = useCallback(() => {
-        dispatch(action);    
-    },[dispatch])
-
+        const dispatch = useDispatch();
         return (
             <TouchableOpacity 
-                style={styles.tile} 
+                style={(checkIsChosen(tile.id))? styles.tileChosen : styles.tile} 
                 key={tile.id}
-                onPress={FilterAction}
+                onPress={ async () => {
+                    if(typeScreen===constant.bookByAuthorScreenName){
+                        await dispatch(FilterBookByAuthor(tile))
+                        return;
+                    }
+                    else{
+                        await dispatch(FilterBookByCATEGORY(tile))
+                        return;
+                    }
+                }}
             >
                 <Text>{tile.name}</Text>
             </TouchableOpacity>
@@ -56,6 +70,14 @@ const styles = StyleSheet.create({
         height:100,
         margin:2,
         backgroundColor:"white",
+        alignSelf:"center"
+    },
+    tileChosen:{
+        flex:1,
+        width:"100%",
+        height:100,
+        margin:2,
+        backgroundColor:"blue",
         alignSelf:"center"
     }
 })
