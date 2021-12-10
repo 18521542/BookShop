@@ -1,33 +1,26 @@
 import React, { useCallback, useEffect } from 'react'
 import { Button } from 'react-native'
 import { StyleSheet, Text, View } from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler'
 import { useSelector, useDispatch } from 'react-redux'
+import BillLabel from '../../components/Bill/BillLabel'
 import { fetch_bills_by_user } from '../../store/actions/bill'
 
 const UserShoppingHistoryScreen = (props) => {
 
-    const bill = useSelector(state => state.bill)
     const dispatch = useDispatch()
-    const test = useCallback(
-        async () => {
-            await dispatch(fetch_bills_by_user())
-        },
-        [dispatch],
-    )
+    useEffect(async () => {
+        await dispatch(fetch_bills_by_user())
+    }, [dispatch])
 
-    const renderBills = bill.bills.map(bill => (
-        <View>
-            <Text>{bill.id}</Text>
-        </View>
-    ))
+    const bill = useSelector(state => state.bill)
+
     return (
         <View>
-            <Text>This is user shopping screen</Text>
-            {renderBills}
-            <Button
-                title="test"
-                onPress={test}
-            />
+            <ScrollView>
+                {bill.bills.map(bill => <BillLabel item={bill}/>)}
+            </ScrollView>
+
         </View>
     )
 }

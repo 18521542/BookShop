@@ -9,8 +9,6 @@ export const fetch_bills_by_user = (username) => {
         try {
             const state = getState();
             const GetBillByUserApi = API_ENDPOINT + "/api/transaction/history";
-
-            console.log(GetBillByUserApi)
     
             const res = await fetch(GetBillByUserApi, {
                 headers:{
@@ -24,6 +22,7 @@ export const fetch_bills_by_user = (username) => {
                     type: FETCH_BILLS_BY_USER,
                     data: result,
                 })
+                return;
             }
             dispatch({
                 type: FETCH_BILLS_BY_USER,
