@@ -30,7 +30,7 @@ const FilterColumn = (props) => {
         const dispatch = useDispatch();
         return (
             <TouchableOpacity 
-                style={(checkIsChosen(tile.id))? styles.tileChosen : styles.tile} 
+                style={styles.tile} 
                 key={tile.id}
                 onPress={ async () => {
                     if(typeScreen===constant.bookByAuthorScreenName){
@@ -43,41 +43,47 @@ const FilterColumn = (props) => {
                     }
                 }}
             >
-                <Text>{tile.name}</Text>
+                <Text style={(checkIsChosen(tile.id))? styles.textChosen : styles.text} >{tile.name}</Text>
             </TouchableOpacity>
         )
     }
     const renderList = (data == undefined) ? null : data.map(tile => renderTile(tile))
     return (
-        <View style={styles.container}>
             <ScrollView>
                 {renderList}
             </ScrollView>
-        </View>
     )
 }
 
 export default FilterColumn
 
 const styles = StyleSheet.create({
-    container:{
-        borderWidth:1,
-        width:"25%",
-    },
     tile:{
         flex:1,
-        width:"100%",
+        flexDirection:"column",
+        width:"90%",
         height:100,
-        margin:2,
         backgroundColor:"white",
-        alignSelf:"center"
+        justifyContent:"center",
+        alignItems:"center",
+        alignSelf:"center",
+        borderRadius:10,
+        marginBottom:5,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        padding:4,
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+
+        elevation: 5,
     },
-    tileChosen:{
-        flex:1,
-        width:"100%",
-        height:100,
-        margin:2,
-        backgroundColor:"blue",
-        alignSelf:"center"
+    textChosen:{
+        color:"red",
+    },
+    text:{
+        color:"black"
     }
 })

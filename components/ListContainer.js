@@ -23,7 +23,7 @@ const ListContainer = (props) => {
    
     return (
         <View style={styles.mainContainer}>
-            <Text>Hello</Text>
+            <Text style={styles.title}>Danh mục sản phẩm</Text>
             <View style={styles.container}>
                 {renderListProduct}
             </View>
@@ -38,7 +38,31 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         flex:1,
         flexWrap:"wrap",
-        backgroundColor:"white",
-        justifyContent:"center"
+        justifyContent:"space-between",
+        paddingLeft:2,
+        paddingRight:2,
     },
+    title:{
+        fontWeight:'bold',
+        fontSize:30,
+        margin:10,
+        fontWeight:"200"
+    },
+    mainContainer:{
+        backgroundColor:"#f5edf5",
+        alignItems:"center",
+        marginTop:10,
+        paddingBottom:10,
+        borderRadius:30,
+        margin:10,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 5,
+        },
+        shadowOpacity: 0.34,
+        shadowRadius: 6.27,
+
+        elevation: 10,
+    }
 })

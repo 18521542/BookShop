@@ -24,7 +24,7 @@ const homeScreen = ({navigation}) => {
     return (
         <ScrollView style={styles.container}>
             <Carousel 
-                title={"Product"}
+                title={"Sản phẩm nổi bật"}
                 data={globalState.book.data}
                 nav={navigation}
             />

@@ -34,13 +34,18 @@ const ProductCard = (props) => {
 
 export default ProductCard
 
+
+import { Dimensions } from 'react-native';
+export const windowWidth = Dimensions.get('window').width;
+export const windowHeight = Dimensions.get('window').height;
+
 const styles = StyleSheet.create({
     container:{
         borderRadius:20,
         flex:1,
         backgroundColor:"white",
-        width:175,
-        minHeight:260,
+        width:windowWidth/(2.3),
+        minHeight:windowHeight/(3.1),
         flexDirection:"column",
         margin:5,
         shadowColor: "#000",
