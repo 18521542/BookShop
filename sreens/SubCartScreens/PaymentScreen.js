@@ -14,6 +14,8 @@ const PaymentScreen = (props) => {
             {isNotReadyToPay? 
                 <PaymentErrorScreen
                     nav={props.navigation}
+                    isSignedIn
+                    isCartEmpty={cart.total===0}
                 /> : <PaymentDetailScreen
                     nav={props.navigation}
                 />

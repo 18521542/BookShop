@@ -102,14 +102,14 @@ const LoginForm = (props) => {
                         width={260}
                         height={40}
                         backgrColor={"blue"}
-                        title={"Log-in"}
+                        title={"Đăng nhập"}
                     />}
                     <MyButton
                         onClick={goToRegisterScreen}
                         width={260}
                         height={40}
                         backgrColor={"red"}
-                        title={"Sign-Up"}
+                        title={"Đăng kí"}
                     />
 
                 </View>

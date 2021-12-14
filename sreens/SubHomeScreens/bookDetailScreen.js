@@ -92,7 +92,7 @@ const bookDetailScreen = (props) => {
             </ScrollView>
             <View style={styles.btn}>
                 <MyButton 
-                    title="add to cart"
+                    title="Thêm vào giỏ hàng"
                     onClick={addToCartButtonHandler}
                     backgrColor="blue"
                 />

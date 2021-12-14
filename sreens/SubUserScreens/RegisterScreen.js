@@ -104,7 +104,7 @@ const RegisterScreen = (props) => {
                     width={300}
                     height={40}
                     backgrColor="#494ead"
-                    title="Register"
+                    title="Đăng kí"
                     onClick={registerHandler}
                 />: <ActivityIndicator/>}
             </View>

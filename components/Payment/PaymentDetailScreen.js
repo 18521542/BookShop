@@ -87,24 +87,27 @@ const PaymentDetailScreen = (props) => {
     return (
         <View style={styles.container}>
             <ScrollView style={styles.contentContainer}>
-                <View style={styles.ProductListInfo}>
-                    <Text style={styles.title}>{`${titleProduct}`}</Text>
-                    {renderListProduct}
-                </View>
+                <View style={styles.topContainer}>
+                    <View style={styles.ProductListInfo}>
+                        <Text style={styles.title}>{`${titleProduct}`}</Text>
+                        {renderListProduct}
+                    </View>
 
-                <View style={{
-                    flexDirection:"row",
-                    justifyContent:"space-between"
-                }}>
-                    <Text style={{
-                        marginTop:8,
-                        fontWeight:"300",
-                        fontSize:20,
-                        marginBottom:15,
-                        marginLeft:5,
-                    }}>{`Tổng giá trị đơn  hàng:`}</Text>
-                    <Text style={styles.totalMoney}>{`${handlePrice(cart.totalMoney)} đ`}</Text>
+                    <View style={{
+                        flexDirection:"row",
+                        justifyContent:"space-between",
+                    }}>
+                        <Text style={{
+                            marginTop:8,
+                            fontWeight:"300",
+                            fontSize:20,
+                            marginBottom:15,
+                            marginLeft:5,
+                        }}>{`Tổng giá trị đơn  hàng:`}</Text>
+                        <Text style={styles.totalMoney}>{`${handlePrice(cart.totalMoney)} đ`}</Text>
+                    </View>
                 </View>
+                
 
                 <View style={styles.UserInfo}>
                     <Text style={styles.title}>{`${titleUser}`}</Text>
@@ -118,7 +121,7 @@ const PaymentDetailScreen = (props) => {
             <View style={styles.Footer}>
                 {IsLoading? <ActivityIndicator/>:
                 <MyButton
-                    title={"confirm"}
+                    title={"Xác nhận"}
                     onClick={createPaymentHandler}
                 />}
             </View>
@@ -138,14 +141,27 @@ const styles = StyleSheet.create({
         height:"15%",
         justifyContent:"center",
         alignItems:"center",
-        backgroundColor:"white"
+        backgroundColor:"#f7f2f7",
+
     },
     contentContainer:{
         height:"85%",
         backgroundColor:"white",
         flexDirection:"column",
+        // borderWidth:1,
+    },
+    topContainer:{
+        borderWidth:1,
+        margin:8,
+        borderRadius:20,
+        paddingVertical:8,
     },
     UserInfo:{
+        borderWidth:1,
+        borderRadius:20,
+        paddingBottom:20,
+        paddingTop:8,
+        margin:8,
         backgroundColor:"white",
         marginTop:5,
         // borderWidth:1,
@@ -154,13 +170,13 @@ const styles = StyleSheet.create({
         marginTop:5,
         padding:8,
         backgroundColor:"white",
+        // borderWidth:1,
     },
     title:{
-        marginTop:8,
         fontWeight:"bold",
         fontSize:20,
-        marginBottom:5,
-        marginLeft:5,
+        alignSelf:"center",
+        margin:10,
     },
     totalMoney:{
         marginTop:8,
