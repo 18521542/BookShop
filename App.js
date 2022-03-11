@@ -1,19 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import RoutingScreen from './sreens'
+import RoutingScreen from './src/sreens'
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import cartReducer from "./store/reducers/cart";
+import cartReducer from "./src/store/reducers/cart";
 import { Provider } from 'react-redux';
-import bookReducer from './store/reducers/book';
+import bookReducer from './src/store/reducers/book';
 import ReduxThunk from "redux-thunk"
-import authReducer from './store/reducers/authentication';
-import { paymentReducer } from './store/reducers/payment';
-import authorReducer from "./store/reducers/author"
-import categoryReducer from './store/reducers/category';
-import { billReducer } from './store/reducers/bill';
+import authReducer from './src/store/reducers/authentication';
+import { paymentReducer } from './src/store/reducers/payment';
+import authorReducer from "./src/store/reducers/author"
+import categoryReducer from './src/store/reducers/category';
+import { billReducer } from './src/store/reducers/bill';
 const rootReducer = combineReducers({
-  cart: cartReducer, 
+  cart: cartReducer,
   book: bookReducer,
   auth: authReducer,
   pay: paymentReducer,
@@ -29,19 +27,8 @@ export default function App() {
     <Provider store ={store}>
       <RoutingScreen/>
     </Provider>
-    
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
 
 import { Dimensions } from 'react-native';
 export const windowWidth = Dimensions.get('window').width;

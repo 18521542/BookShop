@@ -47,8 +47,10 @@ export const color = {
 const GET_API_ENDPOINT = () => {
     const { manifest } = Constants;
 
-    const localUri = `http://${manifest.debuggerHost.split(':').shift()}:5433`;
+    let port = process.env.BE_PORT || "5333";
 
+    // let localUri = `http://${manifest.debuggerHost.split(':').shift()}:${port}`;
+    let localUri = "http://139.59.246.216/backend/"
     return process.env.API_ENDPOINT || localUri
 };
 
