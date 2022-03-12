@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@babel/plugin-transform-modules-commonjs": "^7.16.8",
     "jest": "^27.5.1"
   },
   "private": true

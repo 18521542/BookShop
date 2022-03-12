@@ -46,7 +46,6 @@ const RegisterScreen = (props) => {
             setIsLoading(false)
             setIsRegisterSuccess(true)
         } catch (error) {
-            console.log(error)
             setIsLoading(false)
             setErr(error)
         }
