@@ -1,5 +1,3 @@
-import Constants from "expo-constants";
-
 export const constant = {
     //navigator
     bottomTabNav:" ",
@@ -15,10 +13,10 @@ export const constant = {
     cartScreenName:"cart",
     filterScreenName:"filter",
 
-    //sub_HomeScreens: 
+    //sub_HomeScreens:
     bookDetailScreenName:"detail",
 
-    //sub_UserScreens: 
+    //sub_UserScreens:
     registerScreenName:"R",
     userDetailScreenName:"D",
     userInfoScreenName:"Thông tin cá nhân",
@@ -45,15 +43,10 @@ export const color = {
 }
 
 const GET_API_ENDPOINT = () => {
-    const { manifest } = Constants;
 
-    let port = process.env.BE_PORT || "5333";
+    let localUri = "http://139.59.246.216"
 
-    // let localUri = `http://${manifest.debuggerHost.split(':').shift()}:${port}`;
-    let localUri = "http://139.59.246.216/backend/"
     return process.env.API_ENDPOINT || localUri
 };
 
 export const API_ENDPOINT = GET_API_ENDPOINT();
-
-// export {constant};

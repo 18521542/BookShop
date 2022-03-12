@@ -7,7 +7,6 @@ const UserLabel = (props) => {
     const {title, onClick, IconName, IconType} = props;
 
     const defaultF = () => {
-        console.log("here")
     }
     return (
         <TouchableOpacity
@@ -15,10 +14,10 @@ const UserLabel = (props) => {
         >
             <View style={styles.container}>
                 <View style={{
-                    flexDirection:"row", 
+                    flexDirection:"row",
                     justifyContent:"center",
                     alignItems:"center",
-                    marginLeft:20 
+                    marginLeft:20
                 }}>
                     <Icon
                         name={IconName || "reorder-four-outline"}

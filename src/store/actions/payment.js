@@ -6,14 +6,12 @@ export const createPayment = (paymentInfo) => {
     return async (dispatch, getState) => {
         const create_payment_api = API_ENDPOINT + "/api/transaction"
         const state = getState();
-
         const resContent = {
             method:"POST",
             headers:{
                 api_key: state.auth.user.access_token
             },
             body: JSON.stringify(paymentInfo),
-            // body: {paymentInfo},
             headers:{
                 'Content-Type':'application/json'
             },

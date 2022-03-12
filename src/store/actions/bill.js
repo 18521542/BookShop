@@ -9,13 +9,11 @@ export const fetch_bills_by_user = (username) => {
         try {
             const state = getState();
             const GetBillByUserApi = API_ENDPOINT + "/api/transaction/history";
-    
             const res = await fetch(GetBillByUserApi, {
                 headers:{
                     api_key: state.auth.user.access_token
                 }
             })
-    
             if(res.ok){
                 const result = await res.json();
                 dispatch({
@@ -32,11 +30,11 @@ export const fetch_bills_by_user = (username) => {
             throw Error(error);
         }
     }
-} 
+}
 
 export const selectBill = (bill) => {
     return {
         type: SELECT_BILL,
         billID: bill.id,
     }
-} 
+}

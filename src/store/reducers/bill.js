@@ -10,7 +10,6 @@ export const billReducer = (state = initialState, action) => {
     switch(action.type){
         case FETCH_BILLS_BY_USER:
             const SortBillByDate = action.data.sort((bill1, bill2) => moment(bill1.created_at) < moment(bill2.created_at))
-            console.log(SortBillByDate)
             return {
                 ...state,
                 bills: SortBillByDate,
