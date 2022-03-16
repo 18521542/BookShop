@@ -22,7 +22,7 @@ const UserInfoScreen = (props) => {
 
     const label = (labelName, value, onChangeText) => {
         if(!onChangeText)
-            onChangeText = () => console.log("test");
+            onChangeText = () => {}
         return (
             <View style={styles.label}>
                 <View>
@@ -33,7 +33,6 @@ const UserInfoScreen = (props) => {
                     name="edit"
                     type="material"
                     color="#acb3bf"
-                    onPress={() => console.log("edit")}
                 />
             </View>
         )
