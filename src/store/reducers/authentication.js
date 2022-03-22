@@ -22,11 +22,11 @@ const authReducer = (state = initialState, action) => {
                 ...state
             }
         case auth_action.login:
-            const { 
-                username, 
-                password, 
-                access_jwt_token, 
-                refresh_jwt_token 
+            const {
+                username,
+                password,
+                access_jwt_token,
+                refresh_jwt_token
             } = action.userInfo
 
             const newState = {
