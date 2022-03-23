@@ -18,9 +18,12 @@ const UserShoppingHistoryScreen = (props) => {
     return (
         <View>
             <ScrollView>
-                {bill.bills.map(bill => <BillLabel item={bill} navigation={props.navigation}/>)}
+                {bill.bills.map((bill, index = bill.id) =>
+                    <View key={index}>
+                        <BillLabel index={bill.id} item={bill} navigation={props.navigation}/>
+                    </View>
+                )}
             </ScrollView>
-
         </View>
     )
 }
