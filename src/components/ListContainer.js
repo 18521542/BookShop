@@ -20,10 +20,10 @@ const ListContainer = (props) => {
     }
 
     const renderListProduct = data.map(item => renderProduct(item));
-   
+
     return (
         <View style={styles.mainContainer}>
-            <Text style={styles.title}>Danh mục sản phẩm</Text>
+            <Text style={styles.title}>{`${title}`}</Text>
             <View style={styles.container}>
                 {renderListProduct}
             </View>

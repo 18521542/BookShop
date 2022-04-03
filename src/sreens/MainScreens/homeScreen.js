@@ -13,7 +13,7 @@ import { FetchAuthors } from '../../store/actions/author'
 import { FetchCategories } from '../../store/actions/category'
 const homeScreen = ({navigation}) => {
     //get state
-    const globalState = useSelector(state => state)
+    const bookReducer = useSelector(state => state.book)
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetch_books())
@@ -25,11 +25,11 @@ const homeScreen = ({navigation}) => {
         <ScrollView style={styles.container}>
             <Carousel
                 title={"Sản phẩm nổi bật"}
-                data={globalState.book.data}
+                data={bookReducer.data}
                 nav={navigation}
             />
             <ListContainer
-                data={globalState.book.data}
+                data={bookReducer.data}
                 title="New"
                 nav={navigation}
             />
