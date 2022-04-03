@@ -23,7 +23,7 @@ const homeScreen = ({navigation}) => {
 
     return (
         <ScrollView style={styles.container}>
-            <Carousel 
+            <Carousel
                 title={"Sản phẩm nổi bật"}
                 data={globalState.book.data}
                 nav={navigation}
@@ -44,25 +44,6 @@ const styles = StyleSheet.create({
         flexDirection:"column",
         flex:1,
         backgroundColor:color.backgroundColor,
-    },
-    main:{
-        flex:1,
-        alignItems:"center",
-        backgroundColor: '#61dafb',
-        paddingTop:10,
-    },
-    imgItem:{
-        width: 300,
-        height: 300,
-        paddingTop:20
-    },
-    testText:{
-        flex:1,
-        alignItems:'center',
-        justifyContent:'center',
-    },
-    testBtn:{
-        width:30,
     }
 })
 
