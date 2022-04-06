@@ -6,7 +6,7 @@ export const FILTER_BOOK_BY_AUTHOR = "Filter book by author"
 
 export const FetchAuthors = () => {
     return async dispatch => {
-        const authorAPI = API_ENDPOINT+"/api/author"
+        const authorAPI = API_ENDPOINT+"/api/author?page=1"
         const res = await fetch(authorAPI);
         let data = null;
         if(res.ok){

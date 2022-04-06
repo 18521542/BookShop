@@ -6,7 +6,7 @@ export const FILTER_BOOK_BY_CATEGORY = "Filter book by CATEGORY"
 
 export const FetchCategories = () => {
     return async dispatch => {
-        const CATEGORYAPI = API_ENDPOINT+"/api/category"
+        const CATEGORYAPI = API_ENDPOINT+"/api/category?page=1"
         const res = await fetch(CATEGORYAPI);
         let data = null;
         if(res.ok){
